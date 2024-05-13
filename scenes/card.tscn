@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxmjxhojyxrjp"]
+
+[ext_resource type="Texture2D" uid="uid://b6wmfbsuwid1f" path="res://assets/card_art/Wyndhaven Enclave.png" id="2_aulr8"]
+[ext_resource type="Texture2D" uid="uid://36kqlixrcpw0" path="res://assets/card_frames/card_frame.png" id="3_wntu5"]
+
+[node name="Card" type="Node2D"]
+
+[node name="card_frame" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(-2, -1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_wntu5")
+centered = false
+region_enabled = true
+region_rect = Rect2(161.502, 53.7249, 720.411, 969.5)
+region_filter_clip_enabled = true
+
+[node name="card_art" type="Sprite2D" parent="."]
+position = Vector2(90, 121)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_aulr8")
+region_enabled = true
+region_rect = Rect2(894.553, 3.10951, 828.729, 912.309)
