@@ -1,0 +1,142 @@
+[
+	{
+		"name": "Wyndhaven Enclave",
+		"frame_texture": "CardFrame",
+		"art_texture": "WyndhavenEnclave",
+		"stats": {
+			"attack": 5,
+			"health": 3,
+			"cost": 2
+		},
+		"region_rect": {
+			"x": 521.365,
+			"y": 0,
+			"width": 781.29,
+			"height": 919.459,
+		},
+		"scale": {
+			"x": 0.25,
+			"y": 0.25,
+		},
+	},
+	{
+		"name": "Ruthless Baronesse",
+		"frame_texture": "CardFrame",
+		"art_texture": "RuthlessBaronesse",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	},
+	{
+		"name": "Underground Kingpin",
+		"frame_texture": "CardFrame",
+		"art_texture": "UndergroundKingpin",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	},
+	{
+		"name": "Crown's Secretkeeper",
+		"frame_texture": "CardFrame",
+		"art_texture": "CrownsSecretkeeper",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	},
+	{
+		"name": "Forgebound Smith",
+		"frame_texture": "CardFrame",
+		"art_texture": "ForgeboundSmith",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	},
+	{
+		"name": "Guild Enforcer",
+		"frame_texture": "CardFrame",
+		"art_texture": "GuildEnforcer",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	},
+	{
+		"name": "Plague Doctor",
+		"frame_texture": "CardFrame",
+		"art_texture": "PlagueDoctor",
+		"stats": {
+			"attack": 7,
+			"health": 4,
+			"cost": 3
+		},
+		"region_rect": {
+			"x": 0,
+			"y": 0,
+			"width": 1024,
+			"height": 1024,
+		},
+		"scale": {
+			"x": 0.2,
+			"y": 0.2,
+		},
+	}
+]

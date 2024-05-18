@@ -41,4 +41,4 @@ script = ExtResource("3_vlqso")
 metadata/_edit_use_anchors_ = true
 
 [node name="Card" parent="." instance=ExtResource("4_qso5o")]
-position = Vector2(386, 191)
+position = Vector2(521, 174)

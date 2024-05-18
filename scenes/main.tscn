@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dle7f162yrqyh"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_cjw1k"]
+[ext_resource type="Script" path="res://scripts/CardManager.gd" id="1_sjgag"]
+[ext_resource type="PackedScene" uid="uid://bdxu6s1qnb0tj" path="res://scenes/preload_textures.tscn" id="2_d0lhv"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_cjw1k")
+
+[node name="PreloadTextures" parent="." instance=ExtResource("2_d0lhv")]
+
+[node name="CardManager" type="Node2D" parent="."]
+script = ExtResource("1_sjgag")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(692, 242)
+scale = Vector2(4.21996, 5.25492)

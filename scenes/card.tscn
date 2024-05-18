@@ -1,23 +1,116 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=11 format=3 uid="uid://cxmjxhojyxrjp"]
 
-[ext_resource type="Texture2D" uid="uid://b6wmfbsuwid1f" path="res://assets/card_art/Wyndhaven Enclave.png" id="2_aulr8"]
-[ext_resource type="Texture2D" uid="uid://36kqlixrcpw0" path="res://assets/card_frames/card_frame.png" id="3_wntu5"]
+[ext_resource type="Script" path="res://scripts/card.gd" id="1_hkf25"]
+[ext_resource type="Script" path="res://scripts/card_ui.gd" id="1_lktb8"]
+[ext_resource type="Texture2D" uid="uid://b2prc5upyldva" path="res://assets/card_frames/card_frame.png" id="3_wntu5"]
+[ext_resource type="Texture2D" uid="uid://ctrdk17ok8pcc" path="res://assets/card_art/UndergroundKingpin.png" id="4_kk0p4"]
+[ext_resource type="Texture2D" uid="uid://dbd1wo4tac7g4" path="res://assets/card_frames/card_frame_1.png" id="5_afcww"]
+[ext_resource type="Texture2D" uid="uid://dc25omqkuut4a" path="res://assets/card_frames/card_frame_3.png" id="6_k4lu4"]
+[ext_resource type="Texture2D" uid="uid://vyve5amrmsf0" path="res://assets/card_frames/card_frame_4.png" id="7_cva6p"]
+[ext_resource type="Texture2D" uid="uid://cg7ob78mtbu8m" path="res://assets/card_frames/card_frame_5.png" id="8_qd81t"]
+[ext_resource type="Texture2D" uid="uid://dp8q6s0e88bam" path="res://assets/card_frames/card_frame_6.png" id="9_esstq"]
+[ext_resource type="Texture2D" uid="uid://drp82pcyr051o" path="res://assets/card_frames/card_frame_8.png" id="10_d0k2v"]
 
-[node name="Card" type="Node2D"]
+[node name="Card" type="Node"]
+script = ExtResource("1_hkf25")
 
-[node name="card_frame" type="Sprite2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+enabled = false
+
+[node name="card_ui" type="Node2D" parent="."]
+script = ExtResource("1_lktb8")
+
+[node name="card_frame" type="Sprite2D" parent="card_ui"]
 z_index = 5
-position = Vector2(-2, -1)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_wntu5")
-centered = false
-region_enabled = true
-region_rect = Rect2(161.502, 53.7249, 720.411, 969.5)
-region_filter_clip_enabled = true
+offset = Vector2(-12.08, -14.89)
 
-[node name="card_art" type="Sprite2D" parent="."]
-position = Vector2(90, 121)
+[node name="card_art" type="Sprite2D" parent="card_ui"]
+z_index = -1
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_aulr8")
+texture = ExtResource("4_kk0p4")
 region_enabled = true
-region_rect = Rect2(894.553, 3.10951, 828.729, 912.309)
+region_rect = Rect2(101.425, 0, 741.585, 1024)
+
+[node name="card_name" type="Label" parent="card_ui"]
+z_index = 6
+offset_left = -54.0
+offset_top = 106.0
+offset_right = 115.0
+offset_bottom = 129.0
+scale = Vector2(0.643792, 0.892293)
+mouse_filter = 0
+theme_override_colors/font_color = Color(0.172549, 0.0705882, 0.027451, 1)
+text = "Card Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+text_overrun_behavior = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="card_area" type="Control" parent="card_ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.855
+offset_top = -21.17
+offset_right = 19.145
+offset_bottom = 18.83
+scale = Vector2(-3.971, -6.335)
+pivot_offset = Vector2(20, 20)
+focus_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="border" type="Line2D" parent="card_ui"]
+z_index = 5
+position = Vector2(1.90735e-06, 4)
+scale = Vector2(1.18194, 1.18261)
+points = PackedVector2Array(-86.47, -117, 88, -117, 88, 115.4, -86.47, 115.4)
+closed = true
+width = 1.97
+default_color = Color(1, 1, 1, 0)
+
+[node name="CardFrame1" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.27, 0.27)
+texture = ExtResource("5_afcww")
+
+[node name="CardFrame3" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.29, 0.29)
+texture = ExtResource("6_k4lu4")
+
+[node name="CardFrame4" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.255, 0.255)
+texture = ExtResource("7_cva6p")
+
+[node name="CardFrame5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3.325, -6.135)
+scale = Vector2(0.325, 0.325)
+texture = ExtResource("8_qd81t")
+
+[node name="CardFrame6" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.285, 0.285)
+texture = ExtResource("9_esstq")
+
+[node name="CardFrame8" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("10_d0k2v")
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+position = Vector2(-81, -103)
+scale = Vector2(0.993807, 0.98788)
+points = PackedVector2Array(0, 0, 55.3427, -19.2331, 55.3427, -26.319, 81.5047, -40.4907, 106.661, -26.319, 106.661, -17.2085, 160.997, 7.62939e-06, 162.003, 208.527, 108.673, 231.809, 101.629, 231.809, 81.5047, 251.043, 61.3801, 231.809, 54.3365, 231.809, -7.62939e-06, 208.527)
+closed = true
+width = 2.57
+default_color = Color(1, 0, 0, 1)
+
+[connection signal="focus_entered" from="card_ui/card_area" to="." method="_on_card_area_focus_entered"]
+[connection signal="focus_exited" from="card_ui/card_area" to="." method="_on_card_area_focus_exited"]
+[connection signal="mouse_entered" from="card_ui/card_area" to="card_ui" method="_on_card_area_mouse_entered"]
+[connection signal="mouse_exited" from="card_ui/card_area" to="card_ui" method="_on_card_area_mouse_exited"]
