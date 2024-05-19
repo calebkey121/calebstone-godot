@@ -1,15 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=5 format=3 uid="uid://cxmjxhojyxrjp"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_hkf25"]
 [ext_resource type="Script" path="res://scripts/card_ui.gd" id="1_lktb8"]
 [ext_resource type="Texture2D" uid="uid://b2prc5upyldva" path="res://assets/card_frames/card_frame.png" id="3_wntu5"]
 [ext_resource type="Texture2D" uid="uid://ctrdk17ok8pcc" path="res://assets/card_art/UndergroundKingpin.png" id="4_kk0p4"]
-[ext_resource type="Texture2D" uid="uid://dbd1wo4tac7g4" path="res://assets/card_frames/card_frame_1.png" id="5_afcww"]
-[ext_resource type="Texture2D" uid="uid://dc25omqkuut4a" path="res://assets/card_frames/card_frame_3.png" id="6_k4lu4"]
-[ext_resource type="Texture2D" uid="uid://vyve5amrmsf0" path="res://assets/card_frames/card_frame_4.png" id="7_cva6p"]
-[ext_resource type="Texture2D" uid="uid://cg7ob78mtbu8m" path="res://assets/card_frames/card_frame_5.png" id="8_qd81t"]
-[ext_resource type="Texture2D" uid="uid://dp8q6s0e88bam" path="res://assets/card_frames/card_frame_6.png" id="9_esstq"]
-[ext_resource type="Texture2D" uid="uid://drp82pcyr051o" path="res://assets/card_frames/card_frame_8.png" id="10_d0k2v"]
 
 [node name="Card" type="Node"]
 script = ExtResource("1_hkf25")
@@ -31,16 +25,15 @@ offset = Vector2(-12.08, -14.89)
 z_index = -1
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("4_kk0p4")
-region_enabled = true
 region_rect = Rect2(101.425, 0, 741.585, 1024)
 
 [node name="card_name" type="Label" parent="card_ui"]
 z_index = 6
-offset_left = -54.0
-offset_top = 106.0
-offset_right = 115.0
-offset_bottom = 129.0
-scale = Vector2(0.643792, 0.892293)
+offset_left = -100.0
+offset_top = -173.0
+offset_right = 69.0
+offset_bottom = -150.0
+scale = Vector2(1.18413, 1.51973)
 mouse_filter = 0
 theme_override_colors/font_color = Color(0.172549, 0.0705882, 0.027451, 1)
 text = "Card Name"
@@ -69,37 +62,6 @@ points = PackedVector2Array(-86.47, -117, 88, -117, 88, 115.4, -86.47, 115.4)
 closed = true
 width = 1.97
 default_color = Color(1, 1, 1, 0)
-
-[node name="CardFrame1" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.27, 0.27)
-texture = ExtResource("5_afcww")
-
-[node name="CardFrame3" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.29, 0.29)
-texture = ExtResource("6_k4lu4")
-
-[node name="CardFrame4" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.255, 0.255)
-texture = ExtResource("7_cva6p")
-
-[node name="CardFrame5" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(-3.325, -6.135)
-scale = Vector2(0.325, 0.325)
-texture = ExtResource("8_qd81t")
-
-[node name="CardFrame6" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.285, 0.285)
-texture = ExtResource("9_esstq")
-
-[node name="CardFrame8" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.315, 0.315)
-texture = ExtResource("10_d0k2v")
 
 [node name="Line2D" type="Line2D" parent="."]
 visible = false

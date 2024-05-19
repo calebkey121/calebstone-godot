@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bdxu6s1qnb0tj"]
 
-[ext_resource type="Script" path="res://scripts/PreloadTextures.gd" id="1_swr3i"]
+[ext_resource type="Script" path="res://scripts/TextureManager.gd" id="1_swr3i"]
 
 [node name="PreloadTextures" type="Node"]
 script = ExtResource("1_swr3i")
