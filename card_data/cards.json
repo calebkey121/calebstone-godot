@@ -1,6 +1,6 @@
 {
 	"Wyndhaven Enclave": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame",
 		"art_texture": "WyndhavenEnclave",
 		"stats": {
 			"attack": 5,
@@ -19,7 +19,7 @@
 		}
 	},
 	"Ruthless Baronesse": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame_5",
 		"art_texture": "RuthlessBaronesse",
 		"stats": {
 			"attack": 7,
@@ -38,7 +38,7 @@
 		}
 	},
 	"Underground Kingpin": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame_10",
 		"art_texture": "UndergroundKingpin",
 		"stats": {
 			"attack": 7,
@@ -57,7 +57,7 @@
 		}
 	},
 	"Crown's Secretkeeper": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame_11",
 		"art_texture": "CrownsSecretkeeper",
 		"stats": {
 			"attack": 7,
@@ -76,7 +76,7 @@
 		}
 	},
 	"Forgebound Smith": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame_12",
 		"art_texture": "ForgeboundSmith",
 		"stats": {
 			"attack": 7,
@@ -95,7 +95,7 @@
 		}
 	},
 	"Guild Enforcer": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame",
 		"art_texture": "GuildEnforcer",
 		"stats": {
 			"attack": 7,
@@ -114,7 +114,7 @@
 		}
 	},
 	"Plague Doctor": {
-		"frame_texture": "CardFrame",
+		"frame_texture": "card_frame",
 		"art_texture": "PlagueDoctor",
 		"stats": {
 			"attack": 7,

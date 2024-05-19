@@ -31,20 +31,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
-	
-func set_card_texture(texture: String, region: Rect2, position: Vector2, scale: Vector2):
-	var art_texture = TextureManager.get_texture(texture)
-	$card_art.texture = art_texture
-	if region == Rect2():
-		$card_art.region_enabled = false
-	else:
-		$card_art.region_enabled = true
-		$card_art.region_rect = region
-	if position != Vector2(): # find a better way, its reasonable to have position to 0,0
-		$card_art.position = position
-	if scale != Vector2():
-		$card_art.scale = scale
 
 
 func _on_card_state_change(new_state):

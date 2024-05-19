@@ -1,13 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dle7f162yrqyh"]
+[gd_scene load_steps=2 format=3 uid="uid://dle7f162yrqyh"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_cjw1k"]
-[ext_resource type="Script" path="res://scripts/CardManager.gd" id="1_sjgag"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_cjw1k")
-
-[node name="CardManager" type="Node2D" parent="."]
-script = ExtResource("1_sjgag")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(692, 242)
