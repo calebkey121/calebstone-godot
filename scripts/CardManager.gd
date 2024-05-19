@@ -4,16 +4,7 @@ var card_data = {}
 var CardScene = preload("res://scenes/card.tscn")
 
 func _ready():
-	card_data = load_data_from_json("res://card_data/cards.json")
-
-func load_data_from_json(file_path):
-	var file = FileAccess.open(file_path, FileAccess.READ)
-	if file:
-		var json = file.get_as_text()
-		var data = JSON.parse_string(json)
-		return data
-	else:
-		print("File not found: " + file_path)
+	card_data = Tools.load_data_from_json("res://card_data/cards.json")
 
 
 func create_cards(card_names: Array):
@@ -39,6 +30,7 @@ func create_card(card_name: String):
 		scale = Vector2(card["scale"]["x"], card["scale"]["y"])
 
 	var new_card = CardScene.instantiate()
+	new_card.card_name = card_name
 	var card_ui = new_card.get_node("card_ui")
 	set_frame_texture(card_ui, card["frame_texture"])
 	set_card_texture(card_ui, card["art_texture"], region_rect, position, scale)
@@ -64,7 +56,7 @@ func set_card_texture(card_ui, texture: String, region: Rect2, position: Vector2
 func set_frame_texture(card_ui, frame_name: String):
 	var frame = card_ui.get_node("card_frame")
 	frame.texture = TextureManager.get_texture(frame_name)
-	var frame_data = load_data_from_json("res://card_data/card_frames.json")[frame_name]
+	var frame_data = Tools.load_data_from_json("res://card_data/card_frames.json")[frame_name]
 	var position: Vector2 = Vector2(frame_data["position"]["x"], frame_data["position"]["y"])
 	var scale: Vector2 = Vector2(frame_data["scale"]["x"], frame_data["scale"]["y"])
 	frame.position = position

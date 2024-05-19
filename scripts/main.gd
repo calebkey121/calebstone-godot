@@ -3,10 +3,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if get_tree().current_scene == self:
+		$Camera2D.enabled = true
+	else:
+		$Camera2D.enabled = false
+	
 	var x_offset = 250  # Adjust this value to set the distance between cards
 	var y_offset = 300
-	var initial_x_position = -400  # Initial x position for the first card
-	var initial_y_position = -300  # Initial y position for the first card
+	var initial_x_position = -700  # Initial x position for the first card
+	var initial_y_position = -250  # Initial y position for the first card
 	
 	var card_names = [
 		"Wyndhaven Enclave",
@@ -57,7 +62,7 @@ func _ready():
 		card.get_node("card_ui").position = Vector2(x, y)  # y position is fixed, x position changes
 		add_child(card)
 		x += x_offset
-		if (i + 1) % 10 == 0:
+		if (i + 1) % 11 == 0:
 			y += y_offset
 			x = initial_x_position
 

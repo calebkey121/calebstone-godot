@@ -1,34 +1,74 @@
 [gd_scene load_steps=3 format=3 uid="uid://bxtrch4lakwhn"]
 
 [ext_resource type="Texture2D" uid="uid://oq56y4jmfwbi" path="res://assets/card_backs/calebstone_cardback.png" id="1_8dmu8"]
-[ext_resource type="Script" path="res://scenes/deck.gd" id="1_ddopi"]
+[ext_resource type="Script" path="res://scripts/deck.gd" id="1_ddopi"]
 
 [node name="Deck" type="Node"]
 script = ExtResource("1_ddopi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-858, -140)
 enabled = false
 
-[node name="CalebstoneCardback" type="Sprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-1320, -626)
+
+[node name="CalebstoneCardback" type="Sprite2D" parent="Node2D"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback2" type="Sprite2D" parent="."]
+[node name="CalebstoneCardback2" type="Sprite2D" parent="Node2D"]
 position = Vector2(5, 2)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback3" type="Sprite2D" parent="."]
+[node name="CalebstoneCardback3" type="Sprite2D" parent="Node2D"]
 position = Vector2(10, 4)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback4" type="Sprite2D" parent="."]
+[node name="CalebstoneCardback4" type="Sprite2D" parent="Node2D"]
 position = Vector2(15, 6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback5" type="Sprite2D" parent="."]
+[node name="CalebstoneCardback5" type="Sprite2D" parent="Node2D"]
 position = Vector2(20, 8)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+offset_left = -1441.0
+offset_top = -768.0
+offset_right = -1401.0
+offset_bottom = -728.0
+scale = Vector2(71.9704, 39.4271)
+
+[node name="shuffle_button" type="Button" parent="."]
+offset_left = -1365.0
+offset_top = -430.0
+offset_right = -1303.0
+offset_bottom = -399.0
+scale = Vector2(2.48223, 2.94469)
+text = "shuffle"
+
+[node name="draw_cards_button" type="Button" parent="."]
+offset_left = -1362.0
+offset_top = -277.0
+offset_right = -1314.0
+offset_bottom = -246.0
+scale = Vector2(1.58552, 3.06646)
+text = "draw_cards"
+
+[node name="draw_button" type="Button" parent="."]
+offset_left = -1355.0
+offset_top = -126.0
+offset_right = -1347.0
+offset_bottom = -118.0
+scale = Vector2(3.0319, 2.98368)
+text = "draw"
+
+[connection signal="pressed" from="shuffle_button" to="." method="_on_shuffle_button_pressed"]
+[connection signal="pressed" from="draw_cards_button" to="." method="_on_draw_cards_button_pressed"]
+[connection signal="pressed" from="draw_button" to="." method="_on_draw_button_pressed"]

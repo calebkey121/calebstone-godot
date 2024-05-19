@@ -19,7 +19,7 @@
 		}
 	},
 	"Ruthless Baroness": {
-		"frame_texture": "card_frame_5",
+		"frame_texture": "card_frame",
 		"art_texture": "RuthlessBaroness",
 		"stats": {
 			"attack": 7,
@@ -38,7 +38,7 @@
 		}
 	},
 	"Underground Kingpin": {
-		"frame_texture": "card_frame_10",
+		"frame_texture": "card_frame",
 		"art_texture": "UndergroundKingpin",
 		"stats": {
 			"attack": 7,
@@ -57,7 +57,7 @@
 		}
 	},
 	"Crown's Secretkeeper": {
-		"frame_texture": "card_frame_11",
+		"frame_texture": "card_frame",
 		"art_texture": "CrownsSecretkeeper",
 		"stats": {
 			"attack": 7,
@@ -76,7 +76,7 @@
 		}
 	},
 	"Forgebound Smith": {
-		"frame_texture": "card_frame_12",
+		"frame_texture": "card_frame",
 		"art_texture": "ForgeboundSmith",
 		"stats": {
 			"attack": 7,

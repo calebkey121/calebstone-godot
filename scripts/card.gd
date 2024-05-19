@@ -12,10 +12,12 @@ signal state_change(new_state)
 		state = value
 		state_change.emit(value)
 
+var card_name = ""
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().root.get_child(0) == self:
+	if get_tree().current_scene == self:
 		$Camera2D.enabled = true
 	else:
 		$Camera2D.enabled = false
