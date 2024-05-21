@@ -1,10 +1,7 @@
 extends Node2D
 
-var card_data = {}
+var card_data = Tools.load_data_from_json("res://card_data/cards.json")
 var CardScene = preload("res://scenes/card.tscn")
-
-func _ready():
-	card_data = Tools.load_data_from_json("res://card_data/cards.json")
 
 
 func create_cards(card_names: Array):
@@ -29,6 +26,7 @@ func create_card(card_name: String):
 	if "scale" in card:
 		scale = Vector2(card["scale"]["x"], card["scale"]["y"])
 
+	# change this whole block to use new()/_init
 	var new_card = CardScene.instantiate()
 	new_card.card_name = card_name
 	var card_ui = new_card.get_node("card_ui")

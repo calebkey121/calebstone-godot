@@ -1,5 +1,7 @@
 extends Node
 
+class_name Card
+
 enum STATE { IDLE, READY, ATTACK, TARGET }
 
 signal state_change(new_state)

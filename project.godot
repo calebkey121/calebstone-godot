@@ -17,9 +17,9 @@ config/icon="res://assets/icons/icon.png"
 
 [autoload]
 
+Tools="*res://scripts/Tools.gd"
 TextureManager="*res://scripts/TextureManager.gd"
 CardManager="*res://scripts/CardManager.gd"
-Tools="*res://scripts/Tools.gd"
 
 [display]
 

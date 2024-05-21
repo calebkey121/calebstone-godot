@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://du7rbbuxmt30u"]
+
+[ext_resource type="Script" path="res://scripts/hand.gd" id="1_csnms"]
+
+[node name="hand" type="Node"]
+script = ExtResource("1_csnms")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="hand_ui" type="Node2D" parent="."]
+visible = false
+
+[node name="draw_button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = -0.467882
+anchor_top = -0.450617
+anchor_right = -0.388889
+anchor_bottom = -0.328704
+text = "Draw"
+metadata/_edit_use_anchors_ = true
+
+[node name="hand_list" type="ItemList" parent="."]
+anchors_preset = -1
+anchor_left = -0.363715
+anchor_top = -0.444444
+anchor_right = 0.0416667
+anchor_bottom = 0.0910494
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="draw_button" to="." method="_on_draw_button_pressed"]
+[connection signal="item_activated" from="hand_list" to="." method="_on_hand_list_item_activated"]
