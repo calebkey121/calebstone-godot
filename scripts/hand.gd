@@ -12,6 +12,8 @@ var x_middle: int = 0
 var pad: int = 10
 var card_width: int = 211
 
+@export var initial_card_pos = Vector2(100, 100)
+
 # Just for testing
 var deck: Deck = Deck.new()
 
@@ -24,14 +26,6 @@ func _ready():
 	
 	deck.create_cards_from_decklist("decklist_1")
 	deck.shuffle()
-	for fuck_you in range(1):
-		var card = deck.draw_card()
-		if add_card(card):
-			var card_children = card.get_children()
-			var card_ui = card.get_child(1)
-			var frame = card_ui.get_child(0)
-			print(card_children)
-			$hand_list.add_item(card.card_name)
 	update_cards()
 
 
@@ -49,6 +43,7 @@ func add_card(card: Card):
 	if hand_count == max_hand_size or card == null:
 		return false
 	cards.append(card)
+	card.get_node("card_ui").position = initial_card_pos
 	hand_count += 1
 	add_child(card)
 	update_cards()
@@ -73,7 +68,7 @@ func play_card(index: int):
 	return true
 
 
-# repr
+# display
 func print_hand():
 	var card_names = []
 	for i in range(len(cards)):
@@ -83,12 +78,6 @@ func print_hand():
 
 
 func update_cards():
-	# Remove all existing instances
-	#for child in get_children():
-	#	if child is Card:
-	#		remove_child(child)
-
-
 	# Add new card instances
 	var initial_x_position = x_middle - (hand_count - 1) * (pad / 2 + card_width / 2)
 	var x = initial_x_position
@@ -96,16 +85,12 @@ func update_cards():
 	for i in range(len(cards)):
 		var card = cards[i]
 		var card_ui = card.get_node("card_ui")
-		card_ui.position = Vector2(x, y)  # y position is fixed, x position changes
+		card_ui.z_index = i
+		card_ui.move_card(Vector2(x, y), 0.25)  # y position is fixed, x position changes
 		x += pad + card_width
 
-	# Debug: Print all children
-	#print("Children after update:")
-	#for child in get_children():
-	#	if child is Card:
-	#		#print(child)
 
-
+# buttons
 func _on_draw_button_pressed():
 	var card = deck.draw_card()
 	if add_card(card):
@@ -115,4 +100,3 @@ func _on_draw_button_pressed():
 func _on_hand_list_item_activated(index):
 	if play_card(index):
 		$hand_list.remove_item(index)
-

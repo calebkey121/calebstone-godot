@@ -4,6 +4,7 @@
 
 [node name="hand" type="Node"]
 script = ExtResource("1_csnms")
+initial_card_pos = Vector2(0, -500)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 

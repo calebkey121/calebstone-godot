@@ -7,7 +7,7 @@ var is_expanded = false
 var original_scale = Vector2()
 var scale_value = 0.5
 var expanded_scale = Vector2(scale_value, scale_value)
-var z_value = 10
+var z_value = 100
 
 enum STATE { IDLE, READY, ATTACK, TARGET }
 var border_colors = { 
@@ -31,6 +31,13 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func move_card(new_position: Vector2, duration: float = 0.15):
+	var tween = create_tween()
+	tween.tween_property(self, "position", new_position, duration) \
+	.set_trans(Tween.TRANS_LINEAR) \
+	.set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_card_state_change(new_state):
