@@ -24,7 +24,7 @@ z_index = -1
 scale = Vector2(0.2, 0.2)
 region_rect = Rect2(101.425, 0, 741.585, 1024)
 
-[node name="card_name" type="Label" parent="card_ui"]
+[node name="card_name_label" type="Label" parent="card_ui"]
 visible = false
 z_index = 6
 offset_left = -100.0

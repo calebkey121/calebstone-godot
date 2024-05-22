@@ -52,4 +52,9 @@ func preload_textures():
 	# Add more textures as needed
 	
 func get_texture(name):
-	return textures.get(name, null)
+	if textures.has(name):
+		return textures[name]
+	else:
+		print("Texture not found: ", name)
+		return null
+

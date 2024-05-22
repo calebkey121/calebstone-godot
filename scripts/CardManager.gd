@@ -5,7 +5,7 @@ var CardScene = preload("res://scenes/card.tscn")
 
 
 func create_cards(card_names: Array):
-	var cards = []
+	var cards: Array[Card] = []
 	for name in card_names:
 		cards.append(create_card(name))
 	return cards
@@ -26,13 +26,12 @@ func create_card(card_name: String):
 	if "scale" in card:
 		scale = Vector2(card["scale"]["x"], card["scale"]["y"])
 
-	# change this whole block to use new()/_init
 	var new_card = CardScene.instantiate()
 	new_card.card_name = card_name
 	var card_ui = new_card.get_node("card_ui")
 	set_frame_texture(card_ui, card["frame_texture"])
 	set_card_texture(card_ui, card["art_texture"], region_rect, position, scale)
-	card_ui.get_node("card_name").text = card_name
+	card_ui.get_node("card_name_label").text = card_name
 	return new_card
 
 

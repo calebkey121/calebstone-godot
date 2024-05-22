@@ -3,7 +3,7 @@ extends Node
 class_name Deck
 
 var deck_count: int = 0
-var cards = []
+var cards: Array[Card] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,11 +11,7 @@ func _ready():
 		$Camera2D.enabled = true
 	else:
 		$Camera2D.enabled = false
-	
-
-
-func _init(deck_name: String):
-	create_cards_from_decklist(deck_name)
+	create_cards_from_decklist("decklist_1")
 	shuffle()
 
 

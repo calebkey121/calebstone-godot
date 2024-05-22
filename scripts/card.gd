@@ -23,7 +23,7 @@ func _ready():
 		$Camera2D.enabled = true
 	else:
 		$Camera2D.enabled = false
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
