@@ -27,6 +27,8 @@ func _ready():
 	card_state.state_change.connect(_on_card_state_change)
 	original_scale = self.scale
 	expanded_scale += original_scale
+	
+	$card_area.connect("click_drag", move_card)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
