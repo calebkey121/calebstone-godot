@@ -20,7 +20,8 @@ func _gui_input(event):
 func _process(delta):
 	if dragging:
 		var mouse_pos = get_viewport().get_mouse_position()
+		print(mouse_pos)
 		rect_position = mouse_pos + drag_offset
-		click_drag.emit(rect_position)
+		click_drag.emit(mouse_pos)
 	else:
 		click_drag.emit(null)
