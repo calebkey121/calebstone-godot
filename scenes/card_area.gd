@@ -10,18 +10,15 @@ func _gui_input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if event.pressed:
-				# Check if the click is within the card's bounds
-				print("here")
+				# Checks if the click is within the card's bounds
 				dragging = true
-				drag_offset = rect_position - event.position
+				drag_offset = rect_position + event.position
 			else:
 				dragging = false
 
 func _process(delta):
 	if dragging:
-		var mouse_pos = get_viewport().get_mouse_position()
-		print(mouse_pos)
-		rect_position = mouse_pos + drag_offset
-		click_drag.emit(mouse_pos)
+		var mouse_pos = get_global_mouse_position() + drag_offset
+		click_drag.emit(mouse_pos, 0)
 	else:
 		click_drag.emit(null)

@@ -31,23 +31,21 @@ offset_top = -173.0
 offset_right = 69.0
 offset_bottom = -150.0
 scale = Vector2(1.18413, 1.51973)
+size_flags_vertical = 1
 mouse_filter = 0
 theme_override_colors/font_color = Color(0.172549, 0.0705882, 0.027451, 1)
 text = "Card Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
-metadata/_edit_use_anchors_ = true
 
 [node name="card_area" type="Control" parent="card_ui"]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 6.0
-offset_top = -6.0
-offset_right = 59.0
-offset_bottom = 38.0
+offset_right = 53.0
+offset_bottom = 45.0
 scale = Vector2(-3.971, -6.335)
-pivot_offset = Vector2(20, 20)
+pivot_offset = Vector2(21.09, 19.695)
 focus_mode = 2
 script = ExtResource("4_pofyw")
 

@@ -8,7 +8,7 @@ var original_scale = Vector2()
 var scale_value = 0.5
 var expanded_scale = Vector2(scale_value, scale_value)
 var z_value = 100
-var original_position = Vector2()
+var anchor_position = Vector2()
 
 enum STATE { IDLE, READY, ATTACK, TARGET }
 var border_colors = { 
@@ -27,7 +27,7 @@ var border_color:
 func _ready():
 	card_state.state_change.connect(_on_card_state_change)
 	original_scale = self.scale
-	original_position = self.position
+	anchor_position = self.position
 	expanded_scale += original_scale
 	
 	$card_area.connect("click_drag", move_card)
@@ -39,7 +39,11 @@ func _process(delta):
 
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
-		new_position = original_position
+		new_position = anchor_position
+	if $card_area.dragging:
+		self.z_index += 1000
+	else:
+		self.z_index -= 1000
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, duration) \
 	.set_trans(Tween.TRANS_LINEAR) \

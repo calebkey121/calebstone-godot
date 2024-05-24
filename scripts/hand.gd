@@ -7,7 +7,7 @@ var max_hand_size: int = 10
 var cards: Array[Card] = []
 var id: int = 1
 
-var initial_y_position = 0  # Initial y position for the first card
+var initial_y_position = 500  # Initial y position for the first card
 var x_middle: int = 0
 var pad: int = 10
 var card_width: int = 211
@@ -85,8 +85,10 @@ func update_cards():
 	for i in range(len(cards)):
 		var card = cards[i]
 		var card_ui = card.get_node("card_ui")
+		var new_position = Vector2(x, y)
 		card_ui.z_index = i
-		card_ui.move_card(Vector2(x, y), 0.25)  # y position is fixed, x position changes
+		card_ui.anchor_position = new_position
+		#card_ui.move_card(Vector2(x, y), 0.25)  # y position is fixed, x position changes
 		x += pad + card_width
 
 
