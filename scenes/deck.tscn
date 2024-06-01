@@ -3,53 +3,30 @@
 [ext_resource type="Texture2D" uid="uid://oq56y4jmfwbi" path="res://assets/card_backs/calebstone_cardback.png" id="1_8dmu8"]
 [ext_resource type="Script" path="res://scripts/deck.gd" id="1_ddopi"]
 
-[node name="Deck" type="Node"]
+[node name="Deck" type="Node2D"]
 script = ExtResource("1_ddopi")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
-
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="CalebstoneCardback" type="Sprite2D" parent="Node2D"]
+[node name="CalebstoneCardback" type="Sprite2D" parent="."]
+position = Vector2(-20, -14)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback2" type="Sprite2D" parent="Node2D"]
-position = Vector2(5, 2)
+[node name="CalebstoneCardback2" type="Sprite2D" parent="."]
+position = Vector2(-15, -12)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback3" type="Sprite2D" parent="Node2D"]
-position = Vector2(10, 4)
+[node name="CalebstoneCardback3" type="Sprite2D" parent="."]
+position = Vector2(-10, -10)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback4" type="Sprite2D" parent="Node2D"]
-position = Vector2(15, 6)
+[node name="CalebstoneCardback4" type="Sprite2D" parent="."]
+position = Vector2(-5, -8)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
 
-[node name="CalebstoneCardback5" type="Sprite2D" parent="Node2D"]
-position = Vector2(20, 8)
+[node name="CalebstoneCardback5" type="Sprite2D" parent="."]
+position = Vector2(0, -6)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_8dmu8")
-
-[node name="shuffle_button" type="Button" parent="."]
-offset_left = -421.0
-offset_top = -236.0
-offset_right = -359.0
-offset_bottom = -205.0
-scale = Vector2(2.48223, 2.94469)
-text = "shuffle"
-
-[node name="draw_button" type="Button" parent="."]
-offset_left = -422.0
-offset_top = 27.0
-offset_right = -374.0
-offset_bottom = 58.0
-scale = Vector2(3.0319, 2.98368)
-text = "draw"
-
-[connection signal="pressed" from="shuffle_button" to="." method="_on_shuffle_button_pressed"]
-[connection signal="pressed" from="draw_button" to="." method="_on_draw_button_pressed"]

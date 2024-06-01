@@ -1,31 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=7 format=3 uid="uid://cxmjxhojyxrjp"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_hkf25"]
 [ext_resource type="Script" path="res://scripts/card_ui.gd" id="1_lktb8"]
-[ext_resource type="Texture2D" uid="uid://b2prc5upyldva" path="res://assets/card_frames/card_frame.png" id="3_wntu5"]
-[ext_resource type="Script" path="res://scenes/card_area.gd" id="4_pofyw"]
+[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="2_m8hvs"]
+[ext_resource type="Texture2D" uid="uid://c5ngg421ev5cc" path="res://assets/card_frames/card_frame_12.png" id="4_1vxne"]
+[ext_resource type="Texture2D" uid="uid://b8qth8oka6i6" path="res://assets/card_art/IcelordOfDespair.webp" id="5_ediqs"]
+[ext_resource type="Script" path="res://scripts/card_area.gd" id="5_pkgso"]
 
 [node name="Card" type="Node"]
 script = ExtResource("1_hkf25")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-enabled = false
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+follow_viewport_enabled = true
+script = ExtResource("2_m8hvs")
 
-[node name="card_ui" type="Node2D" parent="."]
+[node name="card_ui" type="Node2D" parent="CanvasLayer"]
 script = ExtResource("1_lktb8")
 
-[node name="card_frame" type="Sprite2D" parent="card_ui"]
-z_index = 1
-position = Vector2(-4.245, -5.135)
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("3_wntu5")
+[node name="card_frame" type="Sprite2D" parent="CanvasLayer/card_ui"]
+z_index = -1
+position = Vector2(2.33, -0.91)
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("4_1vxne")
 
-[node name="card_art" type="Sprite2D" parent="card_ui"]
-scale = Vector2(0.2, 0.2)
-region_rect = Rect2(101.425, 0, 741.585, 1024)
+[node name="card_art" type="Sprite2D" parent="CanvasLayer/card_ui"]
+z_index = -4
+position = Vector2(0, 1.805)
+scale = Vector2(0.153, 0.153)
+texture = ExtResource("5_ediqs")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 1024)
 
-[node name="card_name_label" type="Label" parent="card_ui"]
-z_index = 3
+[node name="card_name_label" type="Label" parent="CanvasLayer/card_ui"]
+z_index = -1
 offset_left = -100.0
 offset_top = -173.0
 offset_right = 69.0
@@ -39,7 +47,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
 
-[node name="card_area" type="Control" parent="card_ui"]
+[node name="card_area" type="Control" parent="CanvasLayer/card_ui"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 53.0
@@ -47,10 +55,10 @@ offset_bottom = 45.0
 scale = Vector2(-3.971, -6.335)
 pivot_offset = Vector2(21.09, 19.695)
 focus_mode = 2
-script = ExtResource("4_pofyw")
+mouse_filter = 1
+script = ExtResource("5_pkgso")
 
-[node name="border" type="Line2D" parent="card_ui"]
-z_index = 3
+[node name="border" type="Line2D" parent="CanvasLayer/card_ui"]
 position = Vector2(1.90735e-06, 4)
 scale = Vector2(1.18194, 1.18261)
 points = PackedVector2Array(-88.837, -120.073, 87.9909, -120.073, 87.991, 116, -88.837, 116)
@@ -58,7 +66,9 @@ closed = true
 width = 1.97
 default_color = Color(1, 1, 1, 0)
 
-[connection signal="focus_entered" from="card_ui/card_area" to="." method="_on_card_area_focus_entered"]
-[connection signal="focus_exited" from="card_ui/card_area" to="." method="_on_card_area_focus_exited"]
-[connection signal="mouse_entered" from="card_ui/card_area" to="card_ui" method="_on_card_area_mouse_entered"]
-[connection signal="mouse_exited" from="card_ui/card_area" to="card_ui" method="_on_card_area_mouse_exited"]
+[connection signal="focus_entered" from="CanvasLayer/card_ui/card_area" to="." method="_on_card_area_focus_entered"]
+[connection signal="focus_exited" from="CanvasLayer/card_ui/card_area" to="." method="_on_card_area_focus_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/card_ui/card_area" to="CanvasLayer" method="_on_card_area_mouse_entered"]
+[connection signal="mouse_entered" from="CanvasLayer/card_ui/card_area" to="CanvasLayer/card_ui" method="_on_card_area_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/card_ui/card_area" to="CanvasLayer" method="_on_card_area_mouse_exited"]
+[connection signal="mouse_exited" from="CanvasLayer/card_ui/card_area" to="CanvasLayer/card_ui" method="_on_card_area_mouse_exited"]

@@ -1,24 +1,20 @@
-extends Node
+extends Node2D
 
 class_name Deck
 
 var deck_count: int = 0
+var deck_name: String = "shadows_of_the_necropolis"
 var cards: Array[Card] = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().current_scene == self:
-		$Camera2D.enabled = true
-	else:
-		$Camera2D.enabled = false
-	create_cards_from_decklist("decklist_1")
+	create_cards_from_decklist()
 	shuffle()
 
 
 # Gameplay
 func shuffle():
 	cards.shuffle()
-
 
 func draw_card():
 	var card = cards.pop_front()
@@ -29,7 +25,6 @@ func draw_card():
 	deck_count -= 1
 	return card
 
-
 func draw_cards(num: int):
 	var drawn_cards = []
 	for i in range(num):
@@ -38,7 +33,7 @@ func draw_cards(num: int):
 
 
 # Prep
-func create_cards_from_decklist(deck_name):
+func create_cards_from_decklist():
 	var card_names = []
 	var decklist = Tools.load_data_from_json("res://decklists/" + deck_name + ".json")
 	for card_name in decklist:
@@ -55,14 +50,3 @@ func print_deck():
 	for card in cards:
 		card_names.append(card.card_name)
 	print(card_names)
-
-
-# Buttons
-func _on_draw_button_pressed():
-	draw_card()
-	print_deck()
-
-
-func _on_shuffle_button_pressed():
-	shuffle()
-	print_deck()

@@ -9,13 +9,19 @@ var id: int = 1
 
 var initial_y_position = 500  # Initial y position for the first card
 var x_middle: int = 0
-var pad: int = 10
+var pad: int = 15
 var card_width: int = 211
 
 @export var initial_card_pos = Vector2(100, 100)
 
 # Just for testing
-var deck: Deck = Deck.new()
+var deck:
+	set(name):
+		deck = Deck.new()
+		deck.deck_name = name
+		deck.create_cards_from_decklist()
+		deck.shuffle()
+		update_cards()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,10 +29,7 @@ func _ready():
 		$Camera2D.enabled = true
 	else:
 		$Camera2D.enabled = false
-	
-	deck.create_cards_from_decklist("decklist_1")
-	deck.shuffle()
-	update_cards()
+	deck = "decklist_1"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -43,7 +46,7 @@ func add_card(card: Card):
 	if hand_count == max_hand_size or card == null:
 		return false
 	cards.append(card)
-	card.get_node("card_ui").position = initial_card_pos
+	card.get_node("CanvasLayer").get_node("card_ui").position = initial_card_pos
 	hand_count += 1
 	add_child(card)
 	update_cards()
@@ -58,14 +61,20 @@ func add_cards(card_array):
 	return true
 
 
-func play_card(index: int):
+func remove_card(index: int):
 	if index < 0 or index >= hand_count:
 		return false
 	remove_child(cards[index])
 	cards.pop_at(index)
+	$hand_list.remove_item(index)
 	hand_count -= 1
 	update_cards()
 	return true
+
+
+func remove_all_cards():
+	while hand_count > 0:
+		remove_card(0)
 
 
 # display
@@ -83,12 +92,10 @@ func update_cards():
 	var x = initial_x_position
 	var y = initial_y_position
 	for i in range(len(cards)):
-		var card = cards[i]
-		var card_ui = card.get_node("card_ui")
 		var new_position = Vector2(x, y)
-		card_ui.z_index = i
-		card_ui.anchor_position = new_position
-		#card_ui.move_card(Vector2(x, y), 0.25)  # y position is fixed, x position changes
+		var card = cards[i]
+		card.anchor_position = new_position
+		card.canvas_layer = i
 		x += pad + card_width
 
 
@@ -100,5 +107,9 @@ func _on_draw_button_pressed():
 
 
 func _on_hand_list_item_activated(index):
-	if play_card(index):
-		$hand_list.remove_item(index)
+	remove_card(index)
+
+
+func _on_reset_button_pressed():
+	remove_all_cards()
+	deck = "decklist_1"

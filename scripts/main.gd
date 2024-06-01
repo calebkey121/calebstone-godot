@@ -59,7 +59,7 @@ func _ready():
 	var y = initial_y_position
 	for i in range(len(cards)):
 		var card = cards[i]
-		card.get_node("card_ui").position = Vector2(x, y)  # y position is fixed, x position changes
+		card.get_node("CanvasLayer").get_node("card_ui").position = Vector2(x, y)  # y position is fixed, x position changes
 		add_child(card)
 		x += x_offset
 		if (i + 1) % 11 == 0:

@@ -1,14 +1,15 @@
 extends Node2D
 
-@onready var card_state = get_parent()  # Reference to the parent CardNode
+@onready var card_state = get_parent().get_parent()  # Reference to the parent CardNode
 
 # Variables to store the original scale and timer state
-var is_expanded = false
-var original_scale = Vector2()
-var scale_value = 0.5
-var expanded_scale = Vector2(scale_value, scale_value)
-var z_value = 100
-var anchor_position = Vector2()
+var is_expanded := false
+var original_z: float
+var original_scale := Vector2()
+var scale_value := 0.5
+var expanded_scale := Vector2(scale_value, scale_value)
+var anchor_position := Vector2()
+
 
 enum STATE { IDLE, READY, ATTACK, TARGET }
 var border_colors = { 
@@ -27,6 +28,7 @@ var border_color:
 func _ready():
 	card_state.state_change.connect(_on_card_state_change)
 	original_scale = self.scale
+	original_z = self.z_index
 	anchor_position = self.position
 	expanded_scale += original_scale
 	
@@ -40,14 +42,10 @@ func _process(delta):
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
 		new_position = anchor_position
-	if $card_area.dragging:
-		self.z_index += 1000
-	else:
-		self.z_index -= 1000
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, duration) \
-	.set_trans(Tween.TRANS_LINEAR) \
-	.set_ease(Tween.EASE_IN_OUT)
+		.set_trans(Tween.TRANS_LINEAR) \
+		.set_ease(Tween.EASE_IN_OUT)
 
 
 func _on_card_state_change(new_state):
@@ -59,7 +57,6 @@ func _on_card_area_mouse_entered():
 	tween.tween_property(self, "scale", expanded_scale, 0.15) \
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
-	self.z_index += z_value
 	is_expanded = true
 
 
@@ -68,5 +65,4 @@ func _on_card_area_mouse_exited():
 	tween.tween_property(self, "scale", original_scale, 0.15) \
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
-	self.z_index -= z_value
 	is_expanded = false

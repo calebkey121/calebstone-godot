@@ -15,14 +15,16 @@ signal state_change(new_state)
 		state_change.emit(value)
 
 var card_name = ""
+var canvas_layer: int:
+	set(value):
+		$CanvasLayer.layer = value
+var anchor_position: Vector2:
+	set(value):
+		$CanvasLayer.get_node("card_ui").anchor_position = value
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if get_tree().current_scene == self:
-		$Camera2D.enabled = true
-	else:
-		$Camera2D.enabled = false
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

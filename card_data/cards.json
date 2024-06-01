@@ -1,724 +1,314 @@
 {
 	"Wyndhaven Enclave": {
-		"frame_texture": "card_frame",
 		"art_texture": "WyndhavenEnclave",
 		"stats": {
 			"attack": 5,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 521.365,
-			"y": 0,
-			"width": 781.29,
-			"height": 919.459
-		},
-		"scale": {
-			"x": 0.25,
-			"y": 0.25
 		}
 	},
 	"Ruthless Baroness": {
-		"frame_texture": "card_frame",
 		"art_texture": "RuthlessBaroness",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Underground Kingpin": {
-		"frame_texture": "card_frame",
 		"art_texture": "UndergroundKingpin",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Crown's Secretkeeper": {
-		"frame_texture": "card_frame",
 		"art_texture": "CrownsSecretkeeper",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Forgebound Smith": {
-		"frame_texture": "card_frame",
 		"art_texture": "ForgeboundSmith",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Guild Enforcer": {
-		"frame_texture": "card_frame",
 		"art_texture": "GuildEnforcer",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Plague Doctor": {
-		"frame_texture": "card_frame",
 		"art_texture": "PlagueDoctor",
 		"stats": {
 			"attack": 7,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Bandit Outlaw": {
-		"frame_texture": "card_frame",
 		"art_texture": "BanditOutlaw",
 		"stats": {
 			"attack": 6,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Banshee's Wail": {
-		"frame_texture": "card_frame",
 		"art_texture": "BansheesWail",
 		"stats": {
 			"attack": 5,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Bone Collector": {
-		"frame_texture": "card_frame",
 		"art_texture": "BoneCollector",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Bow Marshal": {
-		"frame_texture": "card_frame",
 		"art_texture": "BowMarshal",
 		"stats": {
 			"attack": 6,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Castle Ward": {
-		"frame_texture": "card_frame",
 		"art_texture": "CastleWard",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Court Alchemist": {
-		"frame_texture": "card_frame",
 		"art_texture": "CourtAlchemist",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Crypt Creeper": {
-		"frame_texture": "card_frame",
 		"art_texture": "CryptCreeper",
 		"stats": {
 			"attack": 3,
 			"health": 4,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Cursed Squire": {
-		"frame_texture": "card_frame",
 		"art_texture": "CursedSquire",
 		"stats": {
 			"attack": 5,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Dire Wolf": {
-		"frame_texture": "card_frame",
 		"art_texture": "DireWolf",
 		"stats": {
 			"attack": 4,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Ghoul Vanguard": {
-		"frame_texture": "card_frame",
 		"art_texture": "GhoulVanguard",
 		"stats": {
 			"attack": 6,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Ghostly Raider": {
-		"frame_texture": "card_frame",
 		"art_texture": "GhostlyRaider",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Graveyard Sentinel": {
-		"frame_texture": "card_frame",
 		"art_texture": "GraveyardSentinel",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Highland Scout": {
-		"frame_texture": "card_frame",
 		"art_texture": "HighlandScout",
 		"stats": {
 			"attack": 5,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Highwayman's Ambush": {
-		"frame_texture": "card_frame",
 		"art_texture": "HighwaymansAmbush",
 		"stats": {
 			"attack": 6,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Jousting Champion": {
-		"frame_texture": "card_frame",
 		"art_texture": "JoustingChampion",
 		"stats": {
 			"attack": 7,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Mercenary Captain": {
-		"frame_texture": "card_frame",
 		"art_texture": "MercenaryCaptain",
 		"stats": {
 			"attack": 5,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Mournful Spirit": {
-		"frame_texture": "card_frame",
 		"art_texture": "MournfulSpirit",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Necromancer of the Forgotten Depths": {
-		"frame_texture": "card_frame",
 		"art_texture": "NecromanceroftheForgottenDepths",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Necromancer of the Vale": {
-		"frame_texture": "card_frame",
 		"art_texture": "NecromanceroftheVale",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Necropolis Guard": {
-		"frame_texture": "card_frame",
 		"art_texture": "NecropolisGuard",
 		"stats": {
 			"attack": 6,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Phantom Steed": {
-		"frame_texture": "card_frame",
 		"art_texture": "PhantomSteed",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Revenant Archer": {
-		"frame_texture": "card_frame",
 		"art_texture": "RevenantArcher",
 		"stats": {
 			"attack": 7,
 			"health": 3,
 			"cost": 2
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Royal Falconer": {
-		"frame_texture": "card_frame",
 		"art_texture": "RoyalFalconer",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Shadow of the Past": {
-		"frame_texture": "card_frame",
 		"art_texture": "ShadowofthePast",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Siege Engineer": {
-		"frame_texture": "card_frame",
 		"art_texture": "SiegeEngineer",
 		"stats": {
 			"attack": 5,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Skeletal Knight": {
-		"frame_texture": "card_frame",
 		"art_texture": "SkeletalKnight",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Spectral Ferryman": {
-		"frame_texture": "card_frame",
 		"art_texture": "SpectralFerryman",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Tomb Warden": {
-		"frame_texture": "card_frame",
 		"art_texture": "TombWarden",
 		"stats": {
 			"attack": 6,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Undead Creature": {
-		"frame_texture": "card_frame",
 		"art_texture": "UndeadCreature",
 		"stats": {
 			"attack": 5,
 			"health": 4,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Village Blacksmith": {
-		"frame_texture": "card_frame",
 		"art_texture": "VillageBlacksmith",
 		"stats": {
 			"attack": 4,
 			"health": 5,
 			"cost": 3
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
 		}
 	},
 	"Wandering Minstrel": {
-		"frame_texture": "card_frame",
 		"art_texture": "WanderingMinstrel",
 		"stats": {
 			"attack": 3,
 			"health": 6,
 			"cost": 4
-		},
-		"region_rect": {
-			"x": 0,
-			"y": 0,
-			"width": 1024,
-			"height": 1024
-		},
-		"scale": {
-			"x": 0.2,
-			"y": 0.2
+		}
+	},
+	"Icelord of Despair": {
+		"art_texture": "IcelordOfDespair",
+		"stats": {
+			"attack": 3,
+			"health": 6,
+			"cost": 4
 		}
 	}
 }

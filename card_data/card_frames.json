@@ -1,62 +1,183 @@
 {
   "card_frame": {
-	"position": {
-	  "x": -4.245,
-	  "y": -5.135
+	"frame_adjustment": {
+	  "position": {
+		"x": -4.245,
+		"y": -5.135
+	  },
+	  "scale": {
+		"x": 0.3,
+		"y": 0.3
+	  }
 	},
-	"scale": {
-	  "x": 0.3,
-	  "y": 0.3
-	}
-  },
-  "card_frame_5": {
-	"position": {
-	  "x": -4.235,
-	  "y": -6.635
-	},
-	"scale": {
-	  "x": 0.425,
-	  "y": 0.365
-	}
-  },
-  "card_frame_10": {
-	"position": {
-	  "x": 0,
-	  "y": 7.385
-	},
-	"scale": {
-	  "x": 0.29,
-	  "y": 0.29
-	}
-  },
-  "card_frame_11": {
-	"position": {
-	  "x": 0,
-	  "y": -0.285
-	},
-	"scale": {
-	  "x": 0.33,
-	  "y": 0.33
-	}
-  },
-  "card_frame_12": {
-	"position": {
-	  "x": 0,
-	  "y": -3.725
-	},
-	"scale": {
-	  "x": 0.43,
-	  "y": 0.43
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": 0
+		},
+		"scale": {
+		  "x": 0.2,
+		  "y": 0.2
+		}
+	  }, 
+		
 	}
   },
   "card_frame_1": {
-	"position": {
-	  "x": 0,
-	  "y": -3.725
+	"frame_adjustment": {
+	  "position": {
+		"x": 0.11,
+		"y": 1.06
+	  },
+	  "scale": {
+		"x": 0.375,
+		"y": 0.375
+	  }
 	},
-	"scale": {
-	  "x": 0.43,
-	  "y": 0.43
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": 2.345
+		},
+		"scale": {
+		  "x": 0.2,
+		  "y": 0.25
+		}
+	  }
+	}
+  },
+  "card_frame_5": {
+	"frame_adjustment": {
+	  "position": {
+		"x": -4.53,
+		"y": -6.545
+	  },
+	  "scale": {
+		"x": 0.42,
+		"y": 0.44
+	  }
+	},
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": 0
+		},
+		"scale": {
+		  "x": 0.2,
+		  "y": 0.24
+		}
+	  }
+	}
+  },
+  "card_frame_10": {
+	"frame_adjustment": {
+	  "position": {
+		"x": 0,
+		"y": 0.385
+	  },
+	  "scale": {
+		"x": 0.263,
+		"y": 0.265
+	  }
+	},
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": -7.025
+		},
+		"scale": {
+		  "x": 0.19,
+		  "y": 0.19
+		}
+	  }
+	}
+  },
+  "card_frame_11": {
+	"frame_adjustment": {
+	  "position": {
+		"x": 0,
+		"y": 0
+	  },
+	  "scale": {
+		"x": 0.29,
+		"y": 0.28
+	  }
+	},
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": 0
+		},
+		"scale": {
+		  "x": 0.17,
+		  "y": 0.17
+		}
+	  }
+	}
+  },
+  "card_frame_12": {
+	"frame_adjustment": {
+	  "position": {
+		"x": 2.33,
+		"y": -0.91
+	  },
+	  "scale": {
+		"x": 0.33,
+		"y": 0.33
+	  }
+	},
+	"art_adjustment": {
+	  "default": {
+		"region_rect": {
+		  "x": 0,
+		  "y": 0,
+		  "width": 1024,
+		  "height": 1024
+		},
+		"position": {
+		  "x": 0,
+		  "y": 1.805
+		},
+		"scale": {
+		  "x": 0.153,
+		  "y": 0.153
+		}
+	  }
 	}
   }
 }
