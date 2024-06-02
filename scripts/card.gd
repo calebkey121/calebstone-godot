@@ -28,13 +28,13 @@ func _ready():
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
+# Signal Handling
 func _on_card_area_focus_entered():
 	state = STATE.READY
-
 
 func _on_card_area_focus_exited():
 	state = STATE.IDLE

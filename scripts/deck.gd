@@ -5,6 +5,7 @@ class_name Deck
 var deck_count: int = 0
 var deck_name: String = "shadows_of_the_necropolis"
 var cards: Array[Card] = []
+var card_frame: String = "card_frame"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -41,7 +42,7 @@ func create_cards_from_decklist():
 			card_names.append(card_name)
 	
 	deck_count = len(card_names)
-	cards = CardManager.create_cards(card_names)
+	cards = CardManager.create_cards(card_names, card_frame)
 
 
 # repr

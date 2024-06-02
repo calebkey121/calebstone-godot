@@ -58,6 +58,7 @@ text = "Decks
 metadata/_edit_use_anchors_ = true
 
 [node name="deck_list" type="ItemList" parent="decks"]
+layout_mode = 0
 offset_left = 0.835718
 offset_top = 5.0129
 offset_right = 161.836
@@ -95,6 +96,7 @@ text = "Frames
 metadata/_edit_use_anchors_ = true
 
 [node name="frame_list" type="ItemList" parent="frames"]
+layout_mode = 0
 offset_left = 0.835718
 offset_top = 5.0129
 offset_right = 161.836

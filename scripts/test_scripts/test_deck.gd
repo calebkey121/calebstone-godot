@@ -43,6 +43,7 @@ func new_deck(deck_name: String):
 	var deck: Deck
 	deck = DeckScene.instantiate()
 	deck.deck_name = deck_name
+	deck.card_frame = frame_name
 	add_child(deck)
 	deck.position = deck_pos
 	for i in range($Deck.deck_count):
@@ -79,10 +80,10 @@ func _on_reset_button_pressed():
 
 
 func _on_deck_list_item_clicked(index, at_position, mouse_button_index):
-	selected_deck = $decks.get_child(1).get_item_text(index)
+	selected_deck = $decks/deck_list.get_item_text(index)
 
 
 func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
-	frame_name = $frames.get_child(1).get_item_text(index)
-	remove_all_cards()
-	update_cards()
+	frame_name = $frames/frame_list.get_item_text(index)
+	for card in $Deck.cards:
+		CardManager.adjust_card(card, frame_name)

@@ -38,7 +38,6 @@ func _ready():
 func _process(delta):
 	pass
 
-
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
 		new_position = anchor_position
@@ -48,9 +47,9 @@ func move_card(new_position, duration: float = 0.15):
 		.set_ease(Tween.EASE_IN_OUT)
 
 
+# Signal Handling
 func _on_card_state_change(new_state):
 	border_color = new_state
-
 
 func _on_card_area_mouse_entered():
 	var tween = create_tween()
@@ -58,7 +57,6 @@ func _on_card_area_mouse_entered():
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
 	is_expanded = true
-
 
 func _on_card_area_mouse_exited():
 	var tween = create_tween()
