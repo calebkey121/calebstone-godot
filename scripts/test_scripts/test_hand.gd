@@ -64,14 +64,17 @@ func reset():
 	new_deck(selected_deck)
 	update_cards()
 
+func draw_card():
+	var card = $Deck.draw_card()
+	if card:
+		card.get_node("CanvasLayer").get_node("card_ui").position = card_origin_pos
+		if $hand.add_card(card):
+			$hand_list.add_item(card.card_name)
+			add_child(card)
+		update_cards()
 # buttons
 func _on_draw_button_pressed():
-	var card = $Deck.draw_card()
-	card.get_node("CanvasLayer").get_node("card_ui").position = card_origin_pos
-	if $hand.add_card(card):
-		$hand_list.add_item(card.card_name)
-		add_child(card)
-	update_cards()
+	draw_card()
 
 func _on_hand_list_item_activated(index):
 	remove_card(index)
@@ -89,3 +92,7 @@ func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
 	for card in $Deck.cards:
 		CardManager.adjust_card(card, frame_name)
 	reset()
+
+func _on_draw_all_button_pressed():
+	while $Deck.deck_count > 0:
+		draw_card()

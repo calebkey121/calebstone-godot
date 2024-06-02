@@ -3,6 +3,7 @@ extends Node2D
 class_name Deck
 
 var deck_count: int = 0
+var original_deck_count: int = 0
 var deck_name: String = "shadows_of_the_necropolis"
 var cards: Array[Card] = []
 var card_frame: String = "card_frame"
@@ -24,6 +25,7 @@ func draw_card():
 	else:
 		print("you drew " + card.card_name)
 	deck_count -= 1
+	update_deck_visualization() # how many cards are visible for the deck ui
 	return card
 
 func draw_cards(num: int):
@@ -32,6 +34,20 @@ func draw_cards(num: int):
 		drawn_cards.append(draw_card())
 	return drawn_cards
 
+func update_deck_visualization():
+	var percentage: float = float(deck_count) / float(original_deck_count)
+	if percentage > 0.8:
+		return # leave alone
+	elif percentage > 0.6:
+		self.get_child(4).visible = false
+	elif percentage > 0.4:
+		self.get_child(3).visible = false
+	elif percentage > 0.2:
+		self.get_child(2).visible = false
+	elif percentage > 0.0:
+		self.get_child(1).visible = false
+	elif percentage == 0.0:
+		self.get_child(0).visible = false
 
 # Prep
 func create_cards_from_decklist():
@@ -42,6 +58,7 @@ func create_cards_from_decklist():
 			card_names.append(card_name)
 	
 	deck_count = len(card_names)
+	original_deck_count = deck_count
 	cards = CardManager.create_cards(card_names, card_frame)
 
 
