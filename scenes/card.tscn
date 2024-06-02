@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=7 format=3 uid="uid://cxmjxhojyxrjp"]
 
 [ext_resource type="Script" path="res://scripts/card.gd" id="1_hkf25"]
 [ext_resource type="Script" path="res://scripts/card_ui.gd" id="1_lktb8"]
 [ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="2_m8hvs"]
 [ext_resource type="Texture2D" uid="uid://c5ngg421ev5cc" path="res://assets/card_frames/card_frame_12.png" id="4_1vxne"]
+[ext_resource type="Texture2D" uid="uid://b8qth8oka6i6" path="res://assets/card_art/IcelordOfDespair.webp" id="5_ediqs"]
 [ext_resource type="Script" path="res://scripts/card_area.gd" id="5_pkgso"]
 
 [node name="Card" type="Node"]
@@ -27,6 +28,7 @@ texture = ExtResource("4_1vxne")
 z_index = -4
 position = Vector2(0, 1.805)
 scale = Vector2(0.153, 0.153)
+texture = ExtResource("5_ediqs")
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 1024)
 

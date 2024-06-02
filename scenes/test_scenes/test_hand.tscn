@@ -1,44 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjklxtssgk74o"]
+[gd_scene load_steps=3 format=3 uid="uid://ng0cxdlqi7pj"]
 
-[ext_resource type="Script" path="res://scripts/test_scripts/test_deck.gd" id="1_ndoff"]
-[ext_resource type="Script" path="res://scripts/test_scripts/tools/frames.gd" id="2_8uwgu"]
+[ext_resource type="Script" path="res://scripts/test_scripts/test_hand.gd" id="1_6xent"]
+[ext_resource type="Script" path="res://scripts/test_scripts/tools/frames.gd" id="2_k8frr"]
 
-[node name="TestDeck" type="Node"]
-script = ExtResource("1_ndoff")
+[node name="TestHand" type="Node"]
+script = ExtResource("1_6xent")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="shuffle_button" type="Button" parent="."]
-offset_left = -1182.0
-offset_top = -439.0
-offset_right = -1120.0
-offset_bottom = -408.0
-scale = Vector2(2.48223, 2.94469)
-text = "shuffle"
-
 [node name="draw_button" type="Button" parent="."]
-offset_left = -1179.0
-offset_top = -332.0
-offset_right = -1129.0
-offset_bottom = -301.0
-scale = Vector2(3.0319, 2.98368)
-text = "draw"
+anchors_preset = -1
+anchor_left = -0.243924
+anchor_top = -0.490741
+anchor_right = -0.164931
+anchor_bottom = -0.368828
+text = "Draw"
+metadata/_edit_use_anchors_ = true
 
 [node name="reset_button" type="Button" parent="."]
-offset_left = -1179.0
-offset_top = -233.0
-offset_right = -1019.0
-offset_bottom = -141.0
-theme_override_font_sizes/font_size = 41
-text = "reset"
+anchors_preset = -1
+anchor_left = -0.153646
+anchor_top = -0.492284
+anchor_right = -0.0755208
+anchor_bottom = -0.364198
+text = "Reset"
+metadata/_edit_use_anchors_ = true
+
+[node name="hand_list" type="ItemList" parent="."]
+anchors_preset = -1
+anchor_left = -0.496528
+anchor_top = -0.49537
+anchor_right = -0.253472
+anchor_bottom = -0.260802
+metadata/_edit_use_anchors_ = true
 
 [node name="decks" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -1182.0
-offset_top = -136.0
-offset_right = -1142.0
-offset_bottom = -96.0
+offset_left = -1178.0
+offset_top = -290.0
+offset_right = -1138.0
+offset_bottom = -250.0
 scale = Vector2(4.14815, 7.38278)
 
 [node name="deck_label" type="Label" parent="decks"]
@@ -73,12 +75,12 @@ item_2/text = "test"
 [node name="frames" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -1184.0
-offset_top = 180.0
-offset_right = -1144.0
-offset_bottom = 220.0
+offset_left = -998.0
+offset_top = -293.0
+offset_right = -958.0
+offset_bottom = -253.0
 scale = Vector2(4.14815, 7.38278)
-script = ExtResource("2_8uwgu")
+script = ExtResource("2_k8frr")
 
 [node name="frame_label" type="Label" parent="frames"]
 layout_mode = 1
@@ -105,8 +107,8 @@ offset_right = 161.836
 offset_bottom = 332.013
 scale = Vector2(0.23735, 0.107514)
 
-[connection signal="pressed" from="shuffle_button" to="." method="_on_shuffle_button_pressed"]
 [connection signal="pressed" from="draw_button" to="." method="_on_draw_button_pressed"]
 [connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]
+[connection signal="item_activated" from="hand_list" to="." method="_on_hand_list_item_activated"]
 [connection signal="item_clicked" from="decks/deck_list" to="." method="_on_deck_list_item_clicked"]
 [connection signal="item_clicked" from="frames/frame_list" to="." method="_on_frame_list_item_clicked"]

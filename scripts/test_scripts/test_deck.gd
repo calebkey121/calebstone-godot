@@ -14,12 +14,10 @@ var DeckScene: PackedScene = preload("res://scenes/deck.tscn")
 var selected_deck: String = "shadows_of_the_necropolis"
 
 # Frames
-var frame_names: Array[String] = Tools.get_frame_names()
 var frame_name: String = "card_frame"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
-	add_frames_to_list()
 	new_deck(selected_deck)
 	update_cards()
 
@@ -40,8 +38,7 @@ func update_cards():
 			x = initial_x_position
 
 func new_deck(deck_name: String):
-	var deck: Deck
-	deck = DeckScene.instantiate()
+	var deck: Deck = DeckScene.instantiate()
 	deck.deck_name = deck_name
 	deck.card_frame = frame_name
 	add_child(deck)
@@ -57,9 +54,6 @@ func remove_all_cards():
 		var card = $Deck.cards[i]
 		remove_child(card)
 
-func add_frames_to_list():
-	for frame_name in frame_names:
-		$frames.get_child(1).add_item(frame_name)
 
 # Buttons
 func _on_draw_button_pressed():
@@ -78,10 +72,8 @@ func _on_reset_button_pressed():
 	new_deck(selected_deck)
 	update_cards()
 
-
 func _on_deck_list_item_clicked(index, at_position, mouse_button_index):
 	selected_deck = $decks/deck_list.get_item_text(index)
-
 
 func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
 	frame_name = $frames/frame_list.get_item_text(index)

@@ -7,16 +7,6 @@ script = ExtResource("1_4uny4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="reset_button" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = -0.478299
-anchor_top = 0.0169753
-anchor_right = -0.347222
-anchor_bottom = 0.154321
-theme_override_font_sizes/font_size = 41
-text = "reset"
-metadata/_edit_use_anchors_ = true
-
 [node name="cards" type="Control" parent="."]
 layout_mode = 3
 anchor_left = -0.480903
@@ -74,6 +64,5 @@ anchor_bottom = 1.00658
 offset_right = -1.52588e-05
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="reset_button" to="." method="_on_reset_button_pressed"]
 [connection signal="item_clicked" from="cards/card_list" to="." method="_on_card_list_item_clicked"]
 [connection signal="item_clicked" from="frames/frame_list" to="." method="_on_frame_list_item_clicked"]

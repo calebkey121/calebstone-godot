@@ -36,9 +36,6 @@ func update_card():
 	add_child(card)
 
 # Buttons
-func _on_reset_button_pressed():
-	pass
-
 func _on_card_list_item_clicked(index, at_position, mouse_button_index):
 	card_name = $cards.get_child(1).get_item_text(index)
 	update_card()

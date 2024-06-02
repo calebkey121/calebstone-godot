@@ -9,6 +9,7 @@ var original_scale := Vector2()
 var scale_value := 0.5
 var expanded_scale := Vector2(scale_value, scale_value)
 var anchor_position := Vector2()
+var hovering: bool = false
 
 
 enum STATE { IDLE, READY, ATTACK, TARGET }
@@ -41,26 +42,36 @@ func _process(delta):
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
 		new_position = anchor_position
+		if not hovering:
+			shrink()
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, duration) \
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
 
-
-# Signal Handling
-func _on_card_state_change(new_state):
-	border_color = new_state
-
-func _on_card_area_mouse_entered():
+func expand():
 	var tween = create_tween()
 	tween.tween_property(self, "scale", expanded_scale, 0.15) \
 		.set_trans(Tween.TRANS_LINEAR) \
 		.set_ease(Tween.EASE_IN_OUT)
 	is_expanded = true
 
+func shrink():
+	if not $card_area.dragging:
+		var tween = create_tween()
+		tween.tween_property(self, "scale", original_scale, 0.15) \
+			.set_trans(Tween.TRANS_LINEAR) \
+			.set_ease(Tween.EASE_IN_OUT)
+		is_expanded = false
+
+# Signal Handling
+func _on_card_state_change(new_state):
+	border_color = new_state
+
+func _on_card_area_mouse_entered():
+	hovering = true
+	expand()
+
 func _on_card_area_mouse_exited():
-	var tween = create_tween()
-	tween.tween_property(self, "scale", original_scale, 0.15) \
-		.set_trans(Tween.TRANS_LINEAR) \
-		.set_ease(Tween.EASE_IN_OUT)
-	is_expanded = false
+	hovering = false
+	shrink()
