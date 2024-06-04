@@ -96,3 +96,7 @@ func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
 func _on_draw_all_button_pressed():
 	while $Deck.deck_count > 0:
 		draw_card()
+
+func _on_draw_hand_pressed():
+	while $hand.hand_count < $hand.max_hand_size:
+		draw_card()
