@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dl3ysciev0wmm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wblk"]
-size = Vector2(61.0353, 20)
+size = Vector2(122.235, 20)
 
 [node name="Board" type="Node2D"]
 
@@ -14,6 +14,6 @@ shape = SubResource("RectangleShape2D_0wblk")
 [node name="border" type="Line2D" parent="."]
 position = Vector2(-6.043, 0.849)
 scale = Vector2(2.71066, 0.662464)
-points = PackedVector2Array(-89.337, -124.463, 93.811, -124.473, 93.811, 121.91, -89.337, 121.91)
+points = PackedVector2Array(-182.617, -124.463, 186.681, -124.473, 186.681, 121.91, -182.617, 121.91)
 closed = true
 width = 1.73

@@ -4,6 +4,7 @@ extends Node2D
 
 # Variables to store the original scale and timer state
 var is_expanded := false
+var expandable := true
 var original_z: float
 var original_scale := Vector2()
 var scale_value := 0.5
@@ -50,11 +51,12 @@ func move_card(new_position, duration: float = 0.15):
 		.set_ease(Tween.EASE_IN_OUT)
 
 func expand():
-	var tween = create_tween()
-	tween.tween_property(self, "scale", expanded_scale, 0.15) \
-		.set_trans(Tween.TRANS_LINEAR) \
-		.set_ease(Tween.EASE_IN_OUT)
-	is_expanded = true
+	if expandable:
+		var tween = create_tween()
+		tween.tween_property(self, "scale", expanded_scale, 0.15) \
+			.set_trans(Tween.TRANS_LINEAR) \
+			.set_ease(Tween.EASE_IN_OUT)
+		is_expanded = true
 
 func shrink():
 	if not $card_area.dragging:

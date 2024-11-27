@@ -7,7 +7,7 @@ var max_hand_size: int = 10
 var cards: Array[Card] = []
 
 # Hand locations... don't really like this rn
-var y_pos = -450  # Initial y position
+var y_pos = -500  # Initial y position
 var x_middle: int = 0
 var pad: int = 15
 var card_width: int = 211

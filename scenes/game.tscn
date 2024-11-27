@@ -32,13 +32,15 @@ offset_right = 563.0
 offset_bottom = -175.0
 
 [node name="Board" parent="." instance=ExtResource("2_d6480")]
-position = Vector2(-27, 106)
+position = Vector2(80, 83)
+scale = Vector2(0.98, 1)
 
 [node name="Board2" parent="." instance=ExtResource("2_d6480")]
-position = Vector2(-23, -95)
+position = Vector2(80, -82)
+scale = Vector2(0.98, 1)
 
 [node name="Deck" parent="." instance=ExtResource("3_n00ev")]
-position = Vector2(492, 220)
+position = Vector2(517, 242)
 
 [node name="Deck2" parent="." instance=ExtResource("3_n00ev")]
 visible = false
