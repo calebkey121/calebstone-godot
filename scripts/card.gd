@@ -31,7 +31,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-
 # Signal Handling
 func _on_card_area_focus_entered():
 	state = STATE.READY

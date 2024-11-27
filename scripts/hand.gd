@@ -6,6 +6,11 @@ var hand_count: int = 0
 var max_hand_size: int = 10
 var cards: Array[Card] = []
 
+# Hand locations... don't really like this rn
+var y_pos = -450  # Initial y position
+var x_middle: int = 0
+var pad: int = 15
+var card_width: int = 211
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,12 +34,19 @@ func add_card(card: Card):
 	hand_count += 1
 	return true
 
-
+# create from a list of actual cards, or the json object
 func add_cards(card_array):
 	for card in card_array:
-		var inserted: bool = add_card(card)
+		if hand_count == max_hand_size or card == null:
+			return false
+		if typeof(card) == TYPE_DICTIONARY:
+			card = CardManager.create_card(card["name"])
+		var inserted = add_card(card)
 		if not inserted:
 			return false
+	for card in cards:
+		add_child(card)
+	update_card_positions()
 	return true
 
 
@@ -51,10 +63,14 @@ func remove_all_cards():
 		remove_card(0)
 
 
-# display
-func print_hand():
-	var card_names = []
+func update_card_positions():
+	# Add new card instances
+	var initial_x_position = x_middle - (hand_count - 1) * (pad / 2 + card_width / 2)
+	var x = initial_x_position
+	var y = y_pos
 	for i in range(len(cards)):
+		var new_position = Vector2(x, y)
 		var card = cards[i]
-		card_names.append(str(i) + ": " + card.card_name)
-	print(card_names)
+		card.anchor_position = new_position
+		card.canvas_layer = i
+		x += pad + card_width

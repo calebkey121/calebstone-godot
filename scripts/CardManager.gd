@@ -2,7 +2,9 @@ extends Node2D
 
 
 var default_card_frame: String = "card_frame"
+var default_hero_frame: String = "card_frame_10"
 var CardScene = preload("res://scenes/card.tscn")
+var HeroScene = preload("res://scenes/hero.tscn")
 
 func create_cards(card_names: Array, card_frame: String = default_card_frame):
 	var cards: Array[Card] = []
@@ -14,6 +16,11 @@ func create_card(card_name: String, card_frame: String = default_card_frame):
 	var new_card = CardScene.instantiate()
 	new_card.card_name = card_name
 	return adjust_card(new_card, card_frame)
+
+func create_hero(hero_name: String, hero_frame: String = default_hero_frame):
+	var new_hero = HeroScene.instantiate()
+	new_hero.card_name = hero_name
+	return adjust_card(new_hero, hero_frame)
 
 func adjust_card(card: Card, card_frame: String = default_card_frame):
 	var frame_data = Tools.load_data_from_json("res://card_data/card_frames.json")[card_frame]

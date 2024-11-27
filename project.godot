@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Calebstone"
-run/main_scene="res://scenes/hand.tscn"
+run/main_scene="res://scenes/game.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://assets/icons/icon.png"
 
@@ -24,6 +24,8 @@ CardManager="*res://scripts/CardManager.gd"
 [display]
 
 window/size/mode=2
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [rendering]
 

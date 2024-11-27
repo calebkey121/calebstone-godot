@@ -310,5 +310,13 @@
 			"health": 6,
 			"cost": 4
 		}
-	}
+	},
+	"Paul": {
+		"art_texture": "Paul",
+		"stats": {
+			"attack": 3,
+			"health": 6,
+			"cost": 4
+		}
+	},
 }
