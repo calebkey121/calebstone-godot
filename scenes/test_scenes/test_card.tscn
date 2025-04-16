@@ -1,68 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtcf70aarc1in"]
+[gd_scene load_steps=5 format=3 uid="uid://dtcf70aarc1in"]
 
-[ext_resource type="Script" path="res://scripts/test_scripts/test_card.gd" id="1_4uny4"]
+[ext_resource type="Script" uid="uid://ddgauux1u22gd" path="res://scripts/test_scripts/test_card.gd" id="1_4uny4"]
+[ext_resource type="PackedScene" uid="uid://cxmjxhojyxrjp" path="res://scenes/card.tscn" id="2_ppqwn"]
+[ext_resource type="PackedScene" uid="uid://bct6e3k8s2cs3" path="res://scenes/tools/frame_list.tscn" id="3_swlof"]
+[ext_resource type="PackedScene" uid="uid://66dsac8kib7" path="res://scenes/tools/all_cards_list.tscn" id="4_uyc4e"]
 
 [node name="TestCard" type="Node"]
 script = ExtResource("1_4uny4")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="FrameList" parent="." instance=ExtResource("3_swlof")]
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = -4.0
 
-[node name="cards" type="Control" parent="."]
-layout_mode = 3
-anchor_left = -0.480903
-anchor_top = -0.481481
-anchor_right = -0.34809
-anchor_bottom = -0.0123457
-metadata/_edit_use_anchors_ = true
+[node name="AllCardsList" parent="." instance=ExtResource("4_uyc4e")]
+offset_left = 153.0
+offset_top = -4.0
+offset_right = 153.0
+offset_bottom = -4.0
 
-[node name="card_label" type="Label" parent="cards"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.267974
-anchor_top = 0.0328947
-anchor_right = 0.771242
-anchor_bottom = 0.161184
-theme_override_font_sizes/font_size = 28
-text = "Cards"
-metadata/_edit_use_anchors_ = true
-
-[node name="card_list" type="ItemList" parent="cards"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.213816
-anchor_right = 1.00654
-anchor_bottom = 1.00658
-offset_right = -1.52588e-05
-metadata/_edit_use_anchors_ = true
-
-[node name="frames" type="Control" parent="."]
-layout_mode = 3
-anchor_left = -0.332465
-anchor_top = -0.481481
-anchor_right = -0.199653
-anchor_bottom = -0.0123457
-metadata/_edit_use_anchors_ = true
-
-[node name="frame_label" type="Label" parent="frames"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.189543
-anchor_top = 0.0361842
-anchor_right = 0.843137
-anchor_bottom = 0.164474
-theme_override_font_sizes/font_size = 28
-text = "Frames
-"
-metadata/_edit_use_anchors_ = true
-
-[node name="frame_list" type="ItemList" parent="frames"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.213816
-anchor_right = 1.00654
-anchor_bottom = 1.00658
-offset_right = -1.52588e-05
-metadata/_edit_use_anchors_ = true
-
-[connection signal="item_clicked" from="cards/card_list" to="." method="_on_card_list_item_clicked"]
-[connection signal="item_clicked" from="frames/frame_list" to="." method="_on_frame_list_item_clicked"]
+[node name="Card" parent="." instance=ExtResource("2_ppqwn")]
+position = Vector2(597, 356)

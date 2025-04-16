@@ -1,3 +1,21 @@
-*.DS_Store
 .godot
 *.tmp
+*.uid
+
+# macOS
+.DS_Store
+
+# Godot import caches
+.import/
+*.import
+
+# Godot exports (if you use these)
+export.cfg
+export_presets.cfg
+
+# Repomix / tooling output
+repomix-output.txt
+archive/
+
+# Vim swap files, etc.
+*~

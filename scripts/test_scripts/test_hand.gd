@@ -5,37 +5,39 @@ var x_middle: int = 0
 var pad: int = 15
 var card_width: int = 211
 
-# Deck
-var deck_pos := Vector2(0, -568)
-var card_origin_pos := Vector2(0, -568)
-var DeckScene: PackedScene = preload("res://scenes/deck.tscn")
-var selected_deck: String = "shadows_of_the_necropolis"
-
 # Hand
 var HandScene: PackedScene = preload("res://scenes/hand.tscn")
+const DummyDeckScene = preload("res://scripts/tools/dummy_deck.gd")
+var card_origin_pos := Vector2(0, 0)
 
 # Frames
 var frame_name: String = "card_frame"
 
+@onready var DummyHand = $DummyHand
+@onready var DummyDeck = $DummyDeck
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	new_deck(selected_deck)
-	new_hand()
+	var draw_button = DummyHand.get_node("DrawButton")
+	var draw_hand_button = DummyHand.get_node("DrawHandButton")
+	var draw_deck_button = DummyHand.get_node("DrawDeckButton")
+	var hand_item_list = DummyHand.get_node("HandList")
+	draw_button.pressed.connect(draw_card)
+	draw_hand_button.pressed.connect(draw_hand)
+	draw_deck_button.pressed.connect(draw_deck)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
+func draw_card():
+	var card_name = DummyDeck.draw_card()
+	DummyHand.add_card(card_name)
+	$hand.add_card(Tools.get_card_data(card_name))
 
-func new_hand():
-	var hand: Hand = HandScene.instantiate()
-	add_child(hand)
+func draw_hand():
+	var cards = DummyDeck.draw_hand()
+	DummyHand.add_cards(cards)
 
-func new_deck(deck_name: String):
-	var deck: Deck = DeckScene.instantiate()
-	deck.deck_name = deck_name
-	deck.card_frame = frame_name
-	deck.position = deck_pos
-	add_child(deck)
+func draw_deck():
+	var cards = DummyDeck.draw_deck()
+	DummyHand.add_cards(cards)
 
 func update_cards():
 	# Add new card instances
@@ -60,18 +62,8 @@ func remove_all_cards():
 
 func reset():
 	remove_all_cards()
-	remove_child(self.get_node("Deck"))
-	new_deck(selected_deck)
 	update_cards()
 
-func draw_card():
-	var card = $Deck.draw_card()
-	if card:
-		card.get_node("CanvasLayer").get_node("card_ui").position = card_origin_pos
-		if $hand.add_card(card):
-			$hand_list.add_item(card.card_name)
-			add_child(card)
-		update_cards()
 # buttons
 func _on_draw_button_pressed():
 	draw_card()
@@ -83,20 +75,16 @@ func _on_hand_list_item_activated(index):
 func _on_reset_button_pressed():
 	reset()
 
-func _on_deck_list_item_clicked(index, at_position, mouse_button_index):
-	selected_deck = $decks/deck_list.get_item_text(index)
-	reset()
+#func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
+#	frame_name = $frames/frame_list.get_item_text(index)
+#	for card in $Deck.cards:
+#		CardManager.adjust_card(card, frame_name)
+#	reset()
 
-func _on_frame_list_item_clicked(index, at_position, mouse_button_index):
-	frame_name = $frames/frame_list.get_item_text(index)
-	for card in $Deck.cards:
-		CardManager.adjust_card(card, frame_name)
-	reset()
+#func _on_draw_all_button_pressed():
+#	while $Deck.deck_count > 0:
+#		draw_card()
 
-func _on_draw_all_button_pressed():
-	while $Deck.deck_count > 0:
-		draw_card()
-
-func _on_draw_hand_pressed():
-	while $hand.hand_count < $hand.max_hand_size:
-		draw_card()
+#func _on_draw_hand_pressed():
+#	while $hand.hand_count < $hand.max_hand_size:
+#		draw_card()

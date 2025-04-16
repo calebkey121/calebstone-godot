@@ -1,6 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://du7rbbuxmt30u"]
 
-[ext_resource type="Script" path="res://scripts/hand.gd" id="1_csnms"]
+[ext_resource type="Script" uid="uid://bwn5hmcsngaky" path="res://scripts/hand.gd" id="1_csnms"]
 
-[node name="hand" type="Node"]
+[node name="hand" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_csnms")

@@ -12,14 +12,16 @@ config_version=5
 
 config/name="Calebstone"
 run/main_scene="res://scenes/game.tscn"
-config/features=PackedStringArray("4.2", "GL Compatibility")
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icons/icon.png"
 
 [autoload]
 
-TextureManager="*res://scripts/TextureManager.gd"
-Tools="*res://scripts/Tools.gd"
-CardManager="*res://scripts/CardManager.gd"
+TextureManager="*res://scripts/autoload/TextureManager.gd"
+Tools="*res://scripts/autoload/Tools.gd"
+CardManager="*res://scripts/autoload/CardManager.gd"
+Settings="*res://scripts/autoload/Settings.gd"
+NetworkManager="*res://scripts/autoload/NetworkManager.gd"
 
 [display]
 

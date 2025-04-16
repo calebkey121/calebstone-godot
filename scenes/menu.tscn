@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjc6mr6dlaswj"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ggjmf"]
+[ext_resource type="Script" uid="uid://c4mayt6qv8r4b" path="res://scripts/menu.gd" id="1_ggjmf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -8,6 +8,7 @@ anchors_preset = 0
 script = ExtResource("1_ggjmf")
 
 [node name="StartButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 203.0
 offset_top = 247.0
 offset_right = 424.0
@@ -15,10 +16,25 @@ offset_bottom = 436.0
 text = "Start Game"
 
 [node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 681.0
 offset_top = 254.0
 offset_right = 904.0
 offset_bottom = 432.0
 text = "End game"
+
+[node name="Player1Controller" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 68.0
+offset_right = 393.0
+offset_bottom = 187.0
+
+[node name="Player2Controller" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 665.0
+offset_top = 129.0
+offset_right = 705.0
+offset_bottom = 169.0
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]

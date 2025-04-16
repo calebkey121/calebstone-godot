@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfg8xy2a0o1vu"]
+
+[ext_resource type="Script" uid="uid://cyo8x6wbn7apa" path="res://scripts/tools/deck_list.gd" id="1_qcjcq"]
+
+[node name="DeckList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qcjcq")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.95
+offset_top = 2.0
+offset_right = 116.95
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 20
+text = "Decklists"
+
+[node name="Decklists" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 30.0
+offset_right = 152.0
+offset_bottom = 230.0
+auto_height = true

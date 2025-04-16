@@ -1,38 +1,28 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=4 format=3 uid="uid://cxmjxhojyxrjp"]
 
-[ext_resource type="Script" path="res://scripts/card.gd" id="1_hkf25"]
-[ext_resource type="Script" path="res://scripts/card_ui.gd" id="1_lktb8"]
-[ext_resource type="Script" path="res://scripts/CanvasLayer.gd" id="2_m8hvs"]
+[ext_resource type="Script" uid="uid://cmblv0q5l2wy0" path="res://scripts/card.gd" id="1_hkf25"]
 [ext_resource type="Texture2D" uid="uid://c5ngg421ev5cc" path="res://assets/card_frames/card_frame_12.png" id="4_1vxne"]
-[ext_resource type="Script" path="res://scripts/card_area.gd" id="5_pkgso"]
+[ext_resource type="Script" uid="uid://c4owea5gmxffr" path="res://scripts/card_area.gd" id="5_pkgso"]
 
-[node name="Card" type="Node"]
-script = ExtResource("1_hkf25")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 0
+[node name="Card" type="Node2D"]
 scale = Vector2(0.5, 0.5)
-transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
-follow_viewport_enabled = true
-script = ExtResource("2_m8hvs")
+script = ExtResource("1_hkf25")
+expandable = true
 
-[node name="card_ui" type="Node2D" parent="CanvasLayer"]
-script = ExtResource("1_lktb8")
-
-[node name="card_frame" type="Sprite2D" parent="CanvasLayer/card_ui"]
+[node name="card_frame" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(2.33, -0.91)
 scale = Vector2(0.33, 0.33)
 texture = ExtResource("4_1vxne")
 
-[node name="card_art" type="Sprite2D" parent="CanvasLayer/card_ui"]
+[node name="card_art" type="Sprite2D" parent="."]
 z_index = -4
 position = Vector2(0, 1.805)
 scale = Vector2(0.153, 0.153)
 region_enabled = true
 region_rect = Rect2(0, 0, 1024, 1024)
 
-[node name="card_name_label" type="Label" parent="CanvasLayer/card_ui"]
+[node name="card_name_label" type="Label" parent="."]
 z_index = -1
 offset_left = -100.0
 offset_top = -173.0
@@ -47,18 +37,19 @@ horizontal_alignment = 1
 vertical_alignment = 1
 text_overrun_behavior = 1
 
-[node name="card_area" type="Control" parent="CanvasLayer/card_ui"]
+[node name="card_area" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 1.00003
 offset_right = 53.0
-offset_bottom = 45.0
+offset_bottom = 46.0
 scale = Vector2(-3.971, -6.335)
 pivot_offset = Vector2(21.09, 19.695)
 focus_mode = 2
 mouse_filter = 1
 script = ExtResource("5_pkgso")
 
-[node name="border" type="Line2D" parent="CanvasLayer/card_ui"]
+[node name="border" type="Line2D" parent="."]
 position = Vector2(1.90735e-06, 4)
 scale = Vector2(1.18194, 1.18261)
 points = PackedVector2Array(-88.837, -120.073, 87.9909, -120.073, 87.991, 116, -88.837, 116)
@@ -66,9 +57,7 @@ closed = true
 width = 1.97
 default_color = Color(1, 1, 1, 0)
 
-[connection signal="focus_entered" from="CanvasLayer/card_ui/card_area" to="." method="_on_card_area_focus_entered"]
-[connection signal="focus_exited" from="CanvasLayer/card_ui/card_area" to="." method="_on_card_area_focus_exited"]
-[connection signal="mouse_entered" from="CanvasLayer/card_ui/card_area" to="CanvasLayer" method="_on_card_area_mouse_entered"]
-[connection signal="mouse_entered" from="CanvasLayer/card_ui/card_area" to="CanvasLayer/card_ui" method="_on_card_area_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/card_ui/card_area" to="CanvasLayer" method="_on_card_area_mouse_exited"]
-[connection signal="mouse_exited" from="CanvasLayer/card_ui/card_area" to="CanvasLayer/card_ui" method="_on_card_area_mouse_exited"]
+[connection signal="focus_entered" from="card_area" to="." method="_on_card_area_focus_entered"]
+[connection signal="focus_exited" from="card_area" to="." method="_on_card_area_focus_exited"]
+[connection signal="mouse_entered" from="card_area" to="." method="_on_card_area_mouse_entered"]
+[connection signal="mouse_exited" from="card_area" to="." method="_on_card_area_mouse_exited"]

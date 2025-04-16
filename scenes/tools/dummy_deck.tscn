@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://7reht5m32ojy"]
+
+[ext_resource type="Script" uid="uid://c1yyyeu8kppb4" path="res://scripts/tools/dummy_deck.gd" id="1_wsgw3"]
+[ext_resource type="PackedScene" uid="uid://bct6e3k8s2cs3" path="res://scenes/tools/frame_list.tscn" id="2_hvmer"]
+[ext_resource type="PackedScene" uid="uid://dfg8xy2a0o1vu" path="res://scenes/tools/deck_list.tscn" id="3_da4n2"]
+
+[node name="DummyDeck" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wsgw3")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 144.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 16
+text = "Remaining Cards"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RemainingCards" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 28.0
+offset_right = 154.0
+offset_bottom = 228.0
+scale = Vector2(1, 0.996819)
+
+[node name="ResetButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 70.0
+offset_right = 480.0
+offset_bottom = 78.0
+theme_override_font_sizes/font_size = 18
+text = "Reset Deck"
+
+[node name="ShuffleButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 28.0
+offset_right = 549.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 20
+text = "Shuffle"
+
+[node name="FrameList" parent="." instance=ExtResource("2_hvmer")]
+layout_mode = 1
+offset_left = 307.0
+offset_top = -3.0
+offset_right = 307.0
+offset_bottom = -3.0
+
+[node name="DeckList" parent="." instance=ExtResource("3_da4n2")]
+layout_mode = 1
+offset_left = 154.0
+offset_top = -2.0
+offset_right = 154.0
+offset_bottom = -2.0
+
+[connection signal="pressed" from="ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="ShuffleButton" to="." method="shuffle"]

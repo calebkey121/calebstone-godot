@@ -21,8 +21,7 @@ func _on_quit_button_pressed():
 
 # Start game button functionality
 func _on_start_button_pressed():
-	var url = "http://127.0.0.1:5000/api/new_game"  # Replace with your server's URL
-	http_request.request(url, [], HTTPClient.METHOD_POST)
+	NetworkManager.start_new_game($HTTPRequest, "human", "random")
 
 # Callback for when the HTTP request completes
 func _on_http_request_completed(result, response_code, headers, body):
@@ -35,8 +34,7 @@ func _on_http_request_completed(result, response_code, headers, body):
 			
 			# Load the session data
 			current_request = "get_game_state"
-			var url = "http://127.0.0.1:5000/api/game_state/%s" % [session_id]
-			var game_data = http_request.request(url)
+			NetworkManager.load_game($HTTPRequest, session_id)
 		else:
 			# Emit the signal with game data
 			_load_game_scene(response)

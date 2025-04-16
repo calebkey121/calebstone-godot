@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://66dsac8kib7"]
+
+[ext_resource type="Script" uid="uid://bcna7in4r1cos" path="res://scripts/tools/all_cards_list.gd" id="1_e5poo"]
+
+[node name="AllCardsList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e5poo")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 31.0
+offset_top = 3.0
+offset_right = 116.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "All Cards"
+
+[node name="AllCards" type="ItemList" parent="."]
+offset_left = 2.0
+offset_top = 31.0
+offset_right = 152.0
+offset_bottom = 231.0

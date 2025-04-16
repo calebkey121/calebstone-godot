@@ -1,0 +1,64 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1jbuy1yptgw0"]
+
+[ext_resource type="Script" uid="uid://crdb4katqsrt3" path="res://scripts/tools/dummy_hand.gd" id="1_n57ik"]
+
+[node name="DummyHand" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n57ik")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 7.0
+offset_right = 111.0
+offset_bottom = 42.0
+theme_override_font_sizes/font_size = 25
+text = "Hand"
+
+[node name="HandList" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 45.0
+offset_right = 155.0
+offset_bottom = 245.0
+
+[node name="DrawButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 159.69
+offset_top = 45.0
+offset_right = 167.69
+offset_bottom = 53.0
+text = "Draw Card"
+
+[node name="DrawHandButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 80.0
+offset_right = 255.0
+offset_bottom = 111.0
+text = "Draw Hand
+"
+
+[node name="DrawDeckButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 114.53
+offset_right = 252.0
+offset_bottom = 145.53
+text = "Draw Deck"
+
+[node name="ResetHandButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 149.31
+offset_right = 211.0
+offset_bottom = 180.31
+text = "Reset Hand"
+
+[connection signal="item_selected" from="HandList" to="." method="remove_card"]
+[connection signal="pressed" from="ResetHandButton" to="." method="clear_hand"]

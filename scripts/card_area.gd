@@ -12,12 +12,14 @@ func _gui_input(event):
 			if event.pressed:
 				# Checks if the click is within the card's bounds
 				dragging = true
+				get_parent().z_index += 100
 				drag_offset = rect_position + event.position
-				print("event.position: " + str(event.position))
-				print("rect_position: " + str(rect_position))
-				print("get_global_mouse_position(): " + str(get_global_mouse_position()))
+				#print("event.position: " + str(event.position))
+				#print("rect_position: " + str(rect_position))
+				#print("get_global_mouse_position(): " + str(get_global_mouse_position()))
 			else:
 				dragging = false
+				get_parent().z_index -= 100
 
 func _process(_delta):
 	if dragging:
