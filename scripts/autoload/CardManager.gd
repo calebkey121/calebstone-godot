@@ -1,24 +1,35 @@
-extends Node2D
+extends Node
 
-
-var default_card_frame: String = "card_frame"
 var CardScene = preload("res://scenes/card.tscn")
+var HeroScene = preload("res://scenes/hero.tscn")
 
-func create_cards(card_names: Array, card_frame: String = default_card_frame):
+func create_cards(card_data_array: Array[CardData]):
 	var cards: Array[Card] = []
-	for card_name in card_names:
-		cards.append(create_card(card_name, card_frame))
+	for card_data in card_data_array:
+		cards.append(create_card(card_data))
 	return cards
 
-func create_card(card_name: String, card_frame: String = default_card_frame):
+func create_card(card_data: CardData):
 	var new_card = CardScene.instantiate()
-	new_card.card_name = card_name
-	return adjust_card(new_card, card_frame)
+	return adjust_card(new_card, card_data)
 
-func adjust_card(card: Card, card_frame: String = default_card_frame):
-	var frame_data = Tools.load_data_from_json("res://card_data/card_frames.json")[card_frame]
-	var card_name = card.card_name
+func create_hero(hero_data: CardData):
+	var new_hero = HeroScene.instantiate()
+	var hero_card = new_hero.get_child(0)
+	hero_data.type = "hero"
+	return adjust_card(hero_card, hero_data)
+
+func adjust_card(card: Card, data: CardData):
+	card.card_name = data.name
+	card.attack = data.attack
+	card.health = data.health
+	card.cost = data.cost
+	card.card_text = data.text
+	var card_name = data.name # used for ease further down
+	
 	# Frame Adjustments
+	var frame = Settings.card_frame if data.type == "card" else Settings.hero_frame
+	var frame_data = Tools.load_data_from_json("res://card_data/card_frames.json")[frame]
 	var frame_adjustment = frame_data["frame_adjustment"]
 	var frame_position: Vector2 = Vector2(frame_adjustment["position"]["x"], frame_adjustment["position"]["y"])
 	var frame_scale: Vector2 = Vector2(frame_adjustment["scale"]["x"], frame_adjustment["scale"]["y"])
@@ -52,10 +63,9 @@ func adjust_card(card: Card, card_frame: String = default_card_frame):
 		art_scale = Vector2(default["scale"]["x"], default["scale"]["y"])
 	
 	
-	var card_ui = card.get_node("CanvasLayer").get_node("card_ui")
-	set_frame_texture(card_ui, card_frame, frame_position, frame_scale)
-	set_card_texture(card_ui, card_name, art_region_rect, art_position, art_scale)
-	card_ui.get_node("card_name_label").text = card_name
+	set_frame_texture(card, frame, frame_position, frame_scale)
+	set_card_texture(card, card_name, art_region_rect, art_position, art_scale)
+	card.get_node("card_name_label").text = card_name
 	return card
 
 

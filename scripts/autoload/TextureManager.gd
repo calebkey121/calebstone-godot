@@ -51,6 +51,11 @@ func preload_textures():
 	textures["Village Blacksmith"] = preload("res://assets/card_art/VillageBlacksmith.png")
 	textures["Icelord of Despair"] = preload("res://assets/card_art/IcelordOfDespair.webp")
 	textures["Wandering Minstrel"] = preload("res://assets/card_art/WanderingMinstrel.png")
+	textures["Wandering Ronin"] = preload("res://assets/card_art/WanderingRonin.png")
+	textures["Auctor Noctis"] = preload("res://assets/card_art/AuctorNoctis.png")
+	textures["Ebon Mortem"] = preload("res://assets/card_art/EbonMortem.png")
+	textures["Forest Guardian"] = preload("res://assets/card_art/ForestGuardian.png")
+	textures["Undead Creatures"] = preload("res://assets/card_art/UndeadCreatures.png")
 
 	# Add more textures as needed
 	
@@ -60,4 +65,3 @@ func get_texture(tex_name):
 	else:
 		print("Texture not found: ", tex_name)
 		return null
-

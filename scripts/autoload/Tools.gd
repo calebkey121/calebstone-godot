@@ -1,5 +1,6 @@
 extends Node
 
+var card_data = load_data_from_json("res://card_data/cards.json")
 
 # Returns parsed json from file, as a dictionary
 func load_data_from_json(file_path):
@@ -17,6 +18,12 @@ func get_card_names():
 	for card_name in card_data:
 		card_names.append(card_name)
 	return card_names
+
+func get_card_data(card_name: String) -> CardData:
+	var data = card_data.get(card_name)
+	if data == null:
+		data = card_data.get("default")
+	return CardData.from_dict(data)
 
 func get_frame_names():
 	var frame_data = Tools.load_data_from_json("res://card_data/card_frames.json")

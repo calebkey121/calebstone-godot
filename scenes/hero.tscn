@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmc8abkms8sug"]
+
+[ext_resource type="PackedScene" uid="uid://cxmjxhojyxrjp" path="res://scenes/card.tscn" id="1_msiux"]
+
+[node name="Hero" type="Node2D"]
+scale = Vector2(0.75, 0.75)
+
+[node name="Card" parent="." instance=ExtResource("1_msiux")]
+expandable = false
