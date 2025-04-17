@@ -1,40 +1,64 @@
 [gd_scene load_steps=2 format=3 uid="uid://bjc6mr6dlaswj"]
 
-[ext_resource type="Script" uid="uid://c4mayt6qv8r4b" path="res://scripts/menu.gd" id="1_ggjmf"]
+[ext_resource type="Script" uid="uid://cdftm83n0umge" path="res://scripts/menu.gd" id="1_ggjmf"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ggjmf")
 
-[node name="StartButton" type="Button" parent="."]
+[node name="NewGameButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 203.0
-offset_top = 247.0
-offset_right = 424.0
-offset_bottom = 436.0
-text = "Start Game"
+offset_left = 50.0
+offset_top = 450.0
+offset_right = 250.0
+offset_bottom = 550.0
+text = "New Game"
 
 [node name="QuitButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 681.0
-offset_top = 254.0
-offset_right = 904.0
-offset_bottom = 432.0
+offset_left = 300.0
+offset_top = 450.0
+offset_right = 500.0
+offset_bottom = 550.0
 text = "End game"
 
 [node name="Player1Controller" type="ItemList" parent="."]
 layout_mode = 0
-offset_left = 231.0
-offset_top = 68.0
-offset_right = 393.0
-offset_bottom = 187.0
+offset_left = 50.0
+offset_top = 300.0
+offset_right = 250.0
+offset_bottom = 400.0
+item_count = 2
+item_0/text = "Human"
+item_1/text = "Random"
 
 [node name="Player2Controller" type="ItemList" parent="."]
 layout_mode = 0
-offset_left = 665.0
-offset_top = 129.0
-offset_right = 705.0
-offset_bottom = 169.0
+offset_left = 300.0
+offset_top = 300.0
+offset_right = 500.0
+offset_bottom = 400.0
+item_count = 2
+item_0/text = "Human"
+item_1/text = "Random"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="SessionList" type="ItemList" parent="."]
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 150.0
+offset_bottom = 200.0
+
+[node name="LoadGameButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 50.0
+offset_right = 300.0
+offset_bottom = 100.0
+text = "Load Game
+"
+
+[connection signal="item_selected" from="SessionList" to="." method="_on_session_list_item_selected"]
+[connection signal="pressed" from="LoadGameButton" to="." method="_on_load_game_button_pressed"]
