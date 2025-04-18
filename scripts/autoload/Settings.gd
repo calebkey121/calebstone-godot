@@ -5,7 +5,7 @@ var frames: Array = []
 var cards: Array = []
 
 # Settings
-var pad: int = 10
+var pad: int = -40
 var card_width: int = 105
 var card_frame: String = "card_frame"
 var hero_frame: String = "card_frame_10"

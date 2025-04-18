@@ -28,12 +28,13 @@ var card_text = ""
 # ui
 # Variables to store the original scale and timer state
 @export var expandable := false
-var original_z: float
+var base_z_index: float
 var original_scale := Vector2()
 var scale_value := 0.5
 var expanded_scale := Vector2(scale_value, scale_value)
 var anchor_position := Vector2()
 var hovering: bool = false
+var expanded: bool = false
 
 @onready var clickable_area = $card_area
 
@@ -41,7 +42,6 @@ var hovering: bool = false
 func _ready():
 	state_change.connect(_on_card_state_change)
 	original_scale = self.scale
-	original_z = self.z_index
 	anchor_position = self.position
 	expanded_scale += original_scale
 	
@@ -55,14 +55,10 @@ func _process(_delta):
 	var should_be_expanded = hovering || CardManager.is_card_dragging(self)
 	
 	# Update visual state accordingly
-	if should_be_expanded && !is_expanded():
+	if should_be_expanded && !expanded:
 		expand()
-	elif !should_be_expanded && is_expanded():
+	elif !should_be_expanded && expanded:
 		shrink()
-
-func is_expanded() -> bool:
-	# Check if the current scale is approximately equal to expanded_scale
-	return scale.is_equal_approx(expanded_scale)
 
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
@@ -75,6 +71,11 @@ func move_card(new_position, duration: float = 0.15):
 
 func expand():
 	if expandable:
+		expanded = true
+		print("%s expanding", [self.card_name])
+		print("%s z_index before expanding = %s" % [self.card_name, self.z_index])
+		self.z_index = 100 # Or any value > siblings' default (0)
+		print("%s z_index after expanding = %s" % [self.card_name, self.z_index])
 		var tween = create_tween()
 		tween.tween_property(self, "scale", expanded_scale, 0.15) \
 			.set_trans(Tween.TRANS_LINEAR) \
@@ -83,10 +84,19 @@ func expand():
 func shrink():
 	# Only shrink if not being dragged
 	if !CardManager.is_card_dragging(self):
+		expanded = false
 		var tween = create_tween()
 		tween.tween_property(self, "scale", original_scale, 0.15) \
 			.set_trans(Tween.TRANS_LINEAR) \
 			.set_ease(Tween.EASE_IN_OUT)
+		self.z_index = base_z_index
+
+func set_base_z_index(index: int):
+	self.base_z_index = index
+	# Apply immediately ONLY IF NOT currently hovering/being dragged
+	# CardManager handles Z during drag via CanvasLayer
+	if not hovering and not CardManager.is_card_dragging(self):
+		self.z_index = index
 
 # Signal Handlers
 func _on_card_state_change(new_state):

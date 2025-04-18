@@ -111,6 +111,6 @@ func update_card_positions():
 		# Calculate the target local position for this card
 		var new_anchor_position = Vector2(x, 0) # Assuming y=0 is the hand baseline
 		card.anchor_position = new_anchor_position # Store the target
-
+		card.set_base_z_index(i * 5)
 		# Move to the next card's x position
 		x += Settings.card_width + Settings.pad
