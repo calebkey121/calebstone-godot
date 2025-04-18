@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxtjpcx5ghsl3"]
 
-[ext_resource type="Script" uid="uid://d2i4axieerssi" path="res://scripts/test_scripts/test_hand.gd" id="1_6xent"]
+[ext_resource type="Script" uid="uid://bmv8hshpjioqh" path="res://scripts/test_scripts/test_hand.gd" id="1_6xent"]
 [ext_resource type="PackedScene" uid="uid://7reht5m32ojy" path="res://scenes/tools/dummy_deck.tscn" id="2_38dp0"]
 [ext_resource type="PackedScene" uid="uid://c1jbuy1yptgw0" path="res://scenes/tools/dummy_hand.tscn" id="3_xmjgg"]
 [ext_resource type="PackedScene" uid="uid://du7rbbuxmt30u" path="res://scenes/hand.tscn" id="4_jj7cs"]
 
-[node name="TestHand" type="Node"]
+[node name="TestHand" type="Node2D"]
 script = ExtResource("1_6xent")
 
 [node name="DummyDeck" parent="." instance=ExtResource("2_38dp0")]
@@ -17,7 +17,4 @@ offset_right = -1.0
 offset_bottom = 223.06
 
 [node name="hand" parent="." instance=ExtResource("4_jj7cs")]
-offset_left = 602.0
-offset_top = 560.0
-offset_right = 602.0
-offset_bottom = 560.0
+position = Vector2(600, 560)

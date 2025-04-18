@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxmjxhojyxrjp"]
+[gd_scene load_steps=3 format=3 uid="uid://cxmjxhojyxrjp"]
 
-[ext_resource type="Script" uid="uid://cmblv0q5l2wy0" path="res://scripts/card.gd" id="1_hkf25"]
+[ext_resource type="Script" uid="uid://b4ji8allqwrtl" path="res://scripts/card.gd" id="1_hkf25"]
 [ext_resource type="Texture2D" uid="uid://c5ngg421ev5cc" path="res://assets/card_frames/card_frame_12.png" id="4_1vxne"]
-[ext_resource type="Script" uid="uid://c4owea5gmxffr" path="res://scripts/card_area.gd" id="5_pkgso"]
 
 [node name="Card" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -47,7 +46,6 @@ scale = Vector2(-3.971, -6.335)
 pivot_offset = Vector2(21.09, 19.695)
 focus_mode = 2
 mouse_filter = 1
-script = ExtResource("5_pkgso")
 
 [node name="border" type="Line2D" parent="."]
 position = Vector2(1.90735e-06, 4)

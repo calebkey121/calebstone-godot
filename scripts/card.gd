@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 class_name Card
 
@@ -27,7 +27,6 @@ var card_text = ""
 
 # ui
 # Variables to store the original scale and timer state
-var is_expanded := false
 @export var expandable := false
 var original_z: float
 var original_scale := Vector2()
@@ -36,6 +35,7 @@ var expanded_scale := Vector2(scale_value, scale_value)
 var anchor_position := Vector2()
 var hovering: bool = false
 
+@onready var clickable_area = $card_area
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,17 +45,29 @@ func _ready():
 	anchor_position = self.position
 	expanded_scale += original_scale
 	
-	$card_area.connect("click_drag", move_card)
+	# Connect mouse signals to the clickable area
+	clickable_area.gui_input.connect(_on_clickable_area_input_event)
+	clickable_area.mouse_entered.connect(_on_mouse_entered)
+	clickable_area.mouse_exited.connect(_on_mouse_exited)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	# Check if we should be expanded (either hovering or being dragged)
+	var should_be_expanded = hovering || CardManager.is_card_dragging(self)
+	
+	# Update visual state accordingly
+	if should_be_expanded && !is_expanded():
+		expand()
+	elif !should_be_expanded && is_expanded():
+		shrink()
+
+func is_expanded() -> bool:
+	# Check if the current scale is approximately equal to expanded_scale
+	return scale.is_equal_approx(expanded_scale)
 
 func move_card(new_position, duration: float = 0.15):
 	if new_position == null:
 		new_position = anchor_position
-		if not hovering:
-			shrink()
+	
 	var tween = create_tween()
 	tween.tween_property(self, "position", new_position, duration) \
 		.set_trans(Tween.TRANS_LINEAR) \
@@ -67,24 +79,32 @@ func expand():
 		tween.tween_property(self, "scale", expanded_scale, 0.15) \
 			.set_trans(Tween.TRANS_LINEAR) \
 			.set_ease(Tween.EASE_IN_OUT)
-		is_expanded = true
 
 func shrink():
-	if not $card_area.dragging:
+	# Only shrink if not being dragged
+	if !CardManager.is_card_dragging(self):
 		var tween = create_tween()
 		tween.tween_property(self, "scale", original_scale, 0.15) \
 			.set_trans(Tween.TRANS_LINEAR) \
 			.set_ease(Tween.EASE_IN_OUT)
-		is_expanded = false
 
-# Signal Handling
+# Signal Handlers
 func _on_card_state_change(new_state):
 	border_color = new_state
 
-func _on_card_area_mouse_entered():
-	hovering = true
-	expand()
+func _on_mouse_entered():
+	# Ensure we're not currently dragging another card
+	if !CardManager.is_any_card_dragging():
+		hovering = true
 
-func _on_card_area_mouse_exited():
-	hovering = false
-	shrink()
+func _on_mouse_exited():
+	# Ensure we're not still dragging our card
+	if !CardManager.is_card_dragging(self):
+		hovering = false
+
+func _on_clickable_area_input_event(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		if event.pressed:
+			CardManager.start_drag(self)
+		elif CardManager.is_card_dragging(self):
+			CardManager.end_drag()

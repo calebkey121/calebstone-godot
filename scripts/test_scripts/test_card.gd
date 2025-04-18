@@ -2,7 +2,7 @@ extends Node
 
 # Cards
 @onready var card_data: CardData = Tools.get_card_data("Icelord of Despair")
-
+@onready var card: Card = $Card
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$FrameList/Frames.item_selected.connect(_on_frame_list_item_selected)
@@ -10,7 +10,7 @@ func _ready():
 	update_card()
 
 func update_card():
-	CardManager.adjust_card($Card, card_data)
+	CardManager.adjust_card(card, card_data)
 
 # Buttons
 func _on_card_list_item_selected(index):

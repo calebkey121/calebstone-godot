@@ -6,8 +6,11 @@ signal game_started(game_data)
 @onready var new_game_button = $NewGameButton
 @onready var quit_button = $QuitButton
 @onready var http_request = $HTTPRequest
-@onready var session_list = $SessionList
+@onready var session_list = $SessionListNode/SessionList
 var current_request: String
+
+var player1_controller: String = "human"
+var player2_controller: String = "random"
 
 func _ready():
 	# Connect button signals
@@ -27,7 +30,7 @@ func _on_quit_button_pressed():
 # Start game button functionality
 func _on_new_game_button_pressed():
 	current_request = "new_game"
-	NetworkManager.new_game($HTTPRequest, "human", "random")
+	NetworkManager.new_game($HTTPRequest, player1_controller, player1_controller)
 
 # Callback for when the HTTP request completes
 func _on_http_request_completed(result, response_code, headers, body):
@@ -35,11 +38,13 @@ func _on_http_request_completed(result, response_code, headers, body):
 		var response = JSON.parse_string(body.get_string_from_utf8())
 		if current_request == "new_game":
 			var session_id = response["session_id"]
+			session_list.add_item(session_id)
 			
 			# Load the session data
 			current_request = "load_game"
 			NetworkManager.load_game($HTTPRequest, session_id)
 		elif current_request == "get_all_sessions":
+			session_list.clear()
 			for session in response:
 				session_list.add_item(session)
 	else:
@@ -56,3 +61,14 @@ func _on_session_list_item_selected(index):
 
 func _on_load_game_button_pressed():
 	_load_game_scene()
+
+func _on_player_1_controller_item_selected(index):
+	player1_controller = $Player1ControllerNode/Player1Controller.get_item_text(index)
+
+func _on_player_2_controller_item_selected(index):
+	player2_controller = $Player2ControllerNode/Player2Controller.get_item_text(index)
+
+func _on_refresh_sessions_button_pressed():
+	# Get any already running sessions on the server
+	current_request = "get_all_sessions"
+	NetworkManager.get_all_sessions($HTTPRequest)

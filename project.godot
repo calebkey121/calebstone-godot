@@ -23,6 +23,7 @@ CardManager="*res://scripts/autoload/CardManager.gd"
 Settings="*res://scripts/autoload/Settings.gd"
 NetworkManager="*res://scripts/autoload/NetworkManager.gd"
 GameState="*res://scripts/autoload/GameState.gd"
+UILayer="*res://scripts/autoload/UILayer.gd"
 
 [display]
 
