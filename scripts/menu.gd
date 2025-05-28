@@ -33,7 +33,7 @@ func _on_new_game_button_pressed():
 	NetworkManager.new_game($HTTPRequest, player1_controller, player1_controller)
 
 # Callback for when the HTTP request completes
-func _on_http_request_completed(result, response_code, headers, body):
+func _on_http_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:  # HTTP OK
 		var response = JSON.parse_string(body.get_string_from_utf8())
 		if current_request == "new_game":

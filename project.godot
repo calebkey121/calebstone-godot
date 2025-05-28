@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Calebstone"
-run/main_scene="res://scenes/game.tscn"
+run/main_scene="uid://bjc6mr6dlaswj"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://assets/icons/icon.png"
 

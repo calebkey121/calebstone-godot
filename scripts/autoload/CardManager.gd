@@ -206,7 +206,7 @@ func end_drag():
 			# 2. <<< Set initial position correctly >>>
 			# Convert the global position where the drag was released
 			# into the local coordinate space of the original parent (Hand).
-			card.position = original_parent.to_local(release_global_pos)
+			card.position = release_global_pos
 
 			# 3. Now, start the tween from this correct starting local position
 			#    to the card's known anchor_position within the hand.

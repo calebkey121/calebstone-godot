@@ -3,10 +3,11 @@ extends Node2D
 var game_data = {}
 
 # Preload Scenes
-var HandScene: PackedScene = preload("res://scenes/hand.tscn")
 var HeroScene: PackedScene = preload("res://scenes/hero.tscn")
 
 @onready var http_request = $HTTPRequest
+@onready var player1_hand = $Hand
+@onready var player2_hand = $Hand2
 
 func _ready():
 	# Connect HTTPRequest signals
@@ -16,21 +17,6 @@ func _ready():
 func setup(data):
 	game_data = data
 	print("Game scene initialized with data:", game_data)
-	
-	# Create and populate a new hand
-	if $player1_hand:
-		# clear existing cards
-		# maybe have a $hand.clear_cards()
-		remove_child($player1_hand)
-		#$hand.queue_free() is this needed?
-	if $player2_hand:
-		remove_child($player2_hand)
-	var player1_hand: Hand = HandScene.instantiate()
-	player1_hand.name = "player1_hand"
-	player1_hand.position.y = 250
-	var player2_hand: Hand = HandScene.instantiate()
-	player2_hand.name = "player2_hand"
-	player2_hand.position.y = -240
 	
 	# Dummy Data for the Hero Cards
 	var hero_data_dict: Dictionary = {
@@ -47,8 +33,6 @@ func setup(data):
 	hero_data.text = "player2"
 	var player2_hero: Card = CardManager.create_hero(hero_data)
 	
-	add_child(player1_hand)
-	add_child(player2_hand)
 	add_child(player1_hero)
 	add_child(player2_hero)
 	var cards_data = CardData.from_dict_array(game_data["current_player"]["hand"])
@@ -61,7 +45,7 @@ func setup(data):
 	player2_hero.get_child(0).offset = hero2_pos
 
 # Callback for when the HTTP request completes, load game
-func _on_http_request_completed(result, response_code, headers, body):
+func _on_http_request_completed(_result, response_code, _headers, body):
 	if response_code == 200:  # HTTP OK
 		var response = JSON.parse_string(body.get_string_from_utf8())
 		# Emit the signal with game data

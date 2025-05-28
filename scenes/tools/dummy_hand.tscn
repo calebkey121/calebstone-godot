@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c1jbuy1yptgw0"]
 
-[ext_resource type="Script" uid="uid://crdb4katqsrt3" path="res://scripts/tools/dummy_hand.gd" id="1_n57ik"]
+[ext_resource type="Script" uid="uid://c5nknqumvo2tc" path="res://scripts/tools/dummy_hand.gd" id="1_n57ik"]
 
 [node name="DummyHand" type="Control"]
 layout_mode = 3

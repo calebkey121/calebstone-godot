@@ -42,7 +42,7 @@ var expanded: bool = false
 func _ready():
 	state_change.connect(_on_card_state_change)
 	original_scale = self.scale
-	anchor_position = self.position
+	anchor_position = self.global_position
 	expanded_scale += original_scale
 	
 	# Connect mouse signals to the clickable area
@@ -55,9 +55,9 @@ func _process(_delta):
 	var should_be_expanded = hovering || CardManager.is_card_dragging(self)
 	
 	# Update visual state accordingly
-	if should_be_expanded && !expanded:
+	if should_be_expanded && not expanded:
 		expand()
-	elif !should_be_expanded && expanded:
+	elif expanded:
 		shrink()
 
 func move_card(new_position, duration: float = 0.15):
@@ -72,10 +72,7 @@ func move_card(new_position, duration: float = 0.15):
 func expand():
 	if expandable:
 		expanded = true
-		print("%s expanding", [self.card_name])
-		print("%s z_index before expanding = %s" % [self.card_name, self.z_index])
 		self.z_index = 100 # Or any value > siblings' default (0)
-		print("%s z_index after expanding = %s" % [self.card_name, self.z_index])
 		var tween = create_tween()
 		tween.tween_property(self, "scale", expanded_scale, 0.15) \
 			.set_trans(Tween.TRANS_LINEAR) \
